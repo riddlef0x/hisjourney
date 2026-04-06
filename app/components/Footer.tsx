@@ -2,46 +2,46 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-100 mt-20">
+    <footer className="border-t border-slate-200 mt-20" style={{ backgroundColor: '#f9faf8' }}>
       <div className="container-section py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">HJ</span>
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#1a2b4c' }}>
+                <span className="text-white font-black text-sm font-serif">HJ</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold">HisJourney</span>
-                <span className="text-xs text-slate-400">Divorce Support</span>
+                <span className="font-serif font-bold text-slate-900">HisJourney</span>
+                <span className="text-xs text-slate-600">Divorce Support</span>
               </div>
             </div>
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-slate-700">
               Professional divorce support resources for men going through separation in Australia.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold mb-4 text-white">Quick Links</h3>
+            <h3 className="font-serif font-bold mb-4 text-slate-900 text-sm uppercase tracking-wide">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/articles" className="text-slate-400 hover:text-white">
+                <Link href="/articles" className="text-slate-700 hover:text-primary-600 transition-colors">
                   All Articles
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="text-slate-400 hover:text-white">
-                  Categories
+                <Link href="/categories" className="text-slate-700 hover:text-primary-600 transition-colors">
+                  Pathways
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-slate-400 hover:text-white">
+                <Link href="/about" className="text-slate-700 hover:text-primary-600 transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-slate-400 hover:text-white">
+                <Link href="/contact" className="text-slate-700 hover:text-primary-600 transition-colors">
                   Contact
                 </Link>
               </li>
@@ -50,25 +50,25 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="font-bold mb-4 text-white">Resources</h3>
+            <h3 className="font-serif font-bold mb-4 text-slate-900 text-sm uppercase tracking-wide">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="https://www.relationships.org.au" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                <a href="https://www.relationships.org.au" target="_blank" rel="noopener noreferrer" className="text-slate-700 hover:text-primary-600 transition-colors">
                   Relationships Australia
                 </a>
               </li>
               <li>
-                <a href="https://mensline.org.au" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                <a href="https://mensline.org.au" target="_blank" rel="noopener noreferrer" className="text-slate-700 hover:text-primary-600 transition-colors">
                   MensLine Australia
                 </a>
               </li>
               <li>
-                <a href="https://www.beyondblue.org.au" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                <a href="https://www.beyondblue.org.au" target="_blank" rel="noopener noreferrer" className="text-slate-700 hover:text-primary-600 transition-colors">
                   Beyond Blue
                 </a>
               </li>
               <li>
-                <a href="https://www.nationallegalaid.org" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                <a href="https://www.nationallegalaid.org" target="_blank" rel="noopener noreferrer" className="text-slate-700 hover:text-primary-600 transition-colors">
                   Legal Aid Australia
                 </a>
               </li>
@@ -77,8 +77,8 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold mb-4 text-white">Need Support?</h3>
-            <p className="text-sm text-slate-400 mb-4">
+            <h3 className="font-serif font-bold mb-4 text-slate-900 text-sm uppercase tracking-wide">Need Support?</h3>
+            <p className="text-sm text-slate-700 mb-4">
               If you're going through a difficult time, reach out for support.
             </p>
             <Link href="/contact" className="button-primary text-sm">
@@ -88,18 +88,18 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-sm text-slate-400">
+        <div className="border-t border-slate-200 pt-8 flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-sm text-slate-600">
             © 2024 HisJourney. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 sm:mt-0 text-sm">
-            <Link href="/privacy" className="text-slate-400 hover:text-white">
+            <Link href="/privacy" className="text-slate-600 hover:text-primary-600 transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-slate-400 hover:text-white">
+            <Link href="/terms" className="text-slate-600 hover:text-primary-600 transition-colors">
               Terms of Service
             </Link>
-            <Link href="/disclaimer" className="text-slate-400 hover:text-white">
+            <Link href="/disclaimer" className="text-slate-600 hover:text-primary-600 transition-colors">
               Disclaimer
             </Link>
           </div>

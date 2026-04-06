@@ -33,8 +33,11 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://hisjourney.org" />
+        {/* Google Fonts for Editorial Typography */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="antialiased bg-white text-slate-900">
+      <body className="antialiased text-slate-900 font-sans" style={{ backgroundColor: '#f9faf8' }}>
         {children}
       </body>
     </html>

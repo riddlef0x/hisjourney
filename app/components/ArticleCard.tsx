@@ -3,9 +3,10 @@ import type { Article } from '@/lib/articles';
 
 interface ArticleCardProps {
   article: Article;
+  featured?: boolean;
 }
 
-export function ArticleCard({ article }: ArticleCardProps) {
+export function ArticleCard({ article, featured = false }: ArticleCardProps) {
   const publishDate = new Date(article.publishDate).toLocaleDateString('en-AU', {
     year: 'numeric',
     month: 'long',
@@ -13,19 +14,21 @@ export function ArticleCard({ article }: ArticleCardProps) {
   });
 
   return (
-    <div className="card group">
-      {/* Thumbnail */}
-      <div className="mb-4 bg-gradient-to-br from-primary-100 to-navy-100 rounded-lg h-40 flex items-center justify-center overflow-hidden">
-        <div className="w-full h-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
-          <div className="text-center text-white">
-            <div className="text-4xl font-bold">{article.title.charAt(0)}</div>
+    <div className={`card-hover group h-full flex flex-col ${featured ? 'rounded-lg' : 'rounded-lg'}`}>
+      {/* Thumbnail - Updated with larger radius */}
+      <div className={`mb-4 bg-gradient-to-br from-slate-100 to-slate-50 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200 group-hover:border-slate-300 transition-colors ${
+        featured ? 'h-64 md:h-80' : 'h-40'
+      }`}>
+        <div className="text-center">
+          <div className={`font-black ${featured ? 'text-7xl md:text-8xl' : 'text-5xl'}`} style={{ color: '#1a2b4c' }}>
+            {article.title.charAt(0)}
           </div>
         </div>
       </div>
 
-      {/* Categories */}
-      <div className="flex flex-wrap gap-2 mb-3">
-        {article.categories.slice(0, 2).map((cat) => (
+      {/* Categories/Tags */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        {article.categories.slice(0, featured ? 3 : 2).map((cat) => (
           <span key={cat} className="badge-primary text-xs">
             {cat}
           </span>
@@ -34,28 +37,33 @@ export function ArticleCard({ article }: ArticleCardProps) {
 
       {/* Title */}
       <Link href={`/articles/${article.slug}`}>
-        <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-2 line-clamp-2">
+        <h3 className={`font-serif font-bold text-slate-900 group-hover:text-primary-700 transition-colors mb-3 ${
+          featured ? 'text-2xl md:text-3xl line-clamp-3' : 'text-lg line-clamp-2'
+        }`} style={{ color: '#1a2b4c' }}>
           {article.title}
         </h3>
       </Link>
 
       {/* Description */}
-      <p className="text-slate-600 text-sm mb-4 line-clamp-2">
+      <p className={`text-slate-700 mb-4 leading-relaxed flex-grow ${
+        featured ? 'text-base line-clamp-4' : 'text-sm line-clamp-2'
+      }`}>
         {article.description}
       </p>
 
       {/* Meta */}
-      <div className="flex items-center justify-between text-sm text-slate-500 mb-4 pt-4 border-t border-slate-200">
-        <span className="font-medium text-slate-700">{article.author.name}</span>
+      <div className="flex items-center justify-between text-xs text-slate-600 mb-4 pt-4 border-t border-slate-200">
+        <span className="font-medium">{article.author.name}</span>
         <span>{publishDate}</span>
       </div>
 
-      {/* CTA */}
+      {/* CTA - Text link with animated arrow (no button styling) */}
       <Link
         href={`/articles/${article.slug}`}
-        className="button-outline text-sm w-full text-center"
+        className="text-primary-600 hover:text-primary-700 font-semibold text-sm group-hover:gap-2 inline-flex items-center transition-all duration-200"
       >
-        Read Article →
+        <span>Read Article</span>
+        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
       </Link>
     </div>
   );
