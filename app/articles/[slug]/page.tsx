@@ -231,7 +231,3 @@ export default function ArticlePage({ params }: ArticlePageProps) {
   );
 }
 
-function getPublishedArticles() {
-  const { getPublishedArticles: getPub } = require('@/lib/articles');
-  return getPub();
-}

@@ -131,12 +131,4 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   );
 }
 
-function getAllCategories() {
-  const { getAllCategories: getAllCats } = require('@/lib/articles');
-  return getAllCats();
-}
 
-function getArticlesByCategory(category: string) {
-  const { getArticlesByCategory: getByCategory } = require('@/lib/articles');
-  return getByCategory(category);
-}

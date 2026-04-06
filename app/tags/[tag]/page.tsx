@@ -73,12 +73,4 @@ export default function TagPage({ params }: TagPageProps) {
   );
 }
 
-function getAllTags() {
-  const { getAllTags: getAllTagsList } = require('@/lib/articles');
-  return getAllTagsList();
-}
 
-function getArticlesByTag(tag: string) {
-  const { getArticlesByTag: getByTag } = require('@/lib/articles');
-  return getByTag(tag);
-}
