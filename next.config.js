@@ -1,19 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  distDir: 'out',
   images: {
-    domains: ['lh3.googleusercontent.com', 'airtable.com'],
-  },
-  redirects: async () => {
-    return [
-      {
-        source: '/blog/:slug',
-        destination: '/articles/:slug',
-        permanent: true,
-      },
-    ];
-  },
-};
+    unoptimized: true
+  }
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
