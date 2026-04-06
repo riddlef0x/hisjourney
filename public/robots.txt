@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hisjourney.org/sitemap.xml
+
+# Block spammers
+User-agent: BadBot
+Disallow: /
+
+User-agent: BadBot2
+Disallow: /
