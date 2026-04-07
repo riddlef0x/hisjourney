@@ -22,8 +22,8 @@ export default function ArticlesPage() {
       <Header />
 
       <main>
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-slate-100 to-slate-50 py-12">
+        {/* Hero - Sophisticated background */}
+        <section style={{ backgroundColor: '#F4F4F0' }} className="py-12">
           <div className="container-section">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               All Articles
@@ -35,67 +35,88 @@ export default function ArticlesPage() {
         </section>
 
         {/* Content */}
-        <section className="py-16">
+        <section className="py-16" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container-section">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-              {/* Main Content */}
-              <div className="lg:col-span-3">
-                <div className="mb-8">
-                  <p className="text-slate-600">
-                    Showing <strong>{articles.length}</strong> articles
-                  </p>
-                </div>
+            {/* Tags - Horizontal scrollable pills at top */}
+            <div className="mb-12 overflow-x-auto pb-4">
+              <div className="flex gap-2 flex-nowrap">
+                <Link
+                  href="/articles"
+                  className="px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200"
+                  style={{ 
+                    backgroundColor: '#0A1128',
+                    color: '#FFFFFF'
+                  }}
+                >
+                  All Articles
+                </Link>
+                {tags.map((tag) => (
+                  <Link
+                    key={tag}
+                    href={`/tags/${tag.toLowerCase()}`}
+                    className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium whitespace-nowrap transition-colors duration-200"
+                  >
+                    {tag}
+                  </Link>
+                ))}
+              </div>
+            </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {articles.map((article) => (
-                    <ArticleCard key={article.id} article={article} />
-                  ))}
-                </div>
+            {/* Main Content */}
+            <div>
+              <div className="mb-8">
+                <p className="text-slate-600">
+                  Showing <strong>{articles.length}</strong> articles
+                </p>
               </div>
 
-              {/* Sidebar */}
-              <div className="lg:col-span-1">
-                <div className="card sticky top-20">
-                  <h3 className="text-lg font-bold text-slate-900 mb-4">Filter by Tag</h3>
-                  <div className="space-y-2">
-                    {tags.map((tag) => (
-                      <Link
-                        key={tag}
-                        href={`/tags/${tag.toLowerCase()}`}
-                        className="block px-3 py-2 rounded-lg bg-slate-50 hover:bg-primary-50 text-slate-700 hover:text-primary-600 text-sm transition-colors"
-                      >
-                        {tag}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {articles.map((article) => (
+                  <ArticleCard key={article.id} article={article} />
+                ))}
+              </div>
+            </div>
 
-                {/* Resources CTA */}
-                <div className="card mt-6">
-                  <h3 className="text-lg font-bold text-slate-900 mb-4">Need Immediate Help?</h3>
-                  <p className="text-sm text-slate-600 mb-4">
-                    If you're in crisis or need immediate support, please reach out to these services:
-                  </p>
-                  <div className="space-y-3 text-sm">
-                    <a
-                      href="https://mensline.org.au"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-primary-600 hover:text-primary-700 font-semibold"
-                    >
-                      MensLine Australia<br />
-                      <span className="text-slate-600 font-normal">1300 78 99 78</span>
-                    </a>
-                    <a
-                      href="https://www.beyondblue.org.au"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-primary-600 hover:text-primary-700 font-semibold"
-                    >
-                      Beyond Blue<br />
-                      <span className="text-slate-600 font-normal">1300 22 4636</span>
-                    </a>
-                  </div>
+            {/* Resources CTA - Below articles */}
+            <div className="mt-16 pt-12 border-t border-slate-100">
+              <div className="max-w-2xl">
+                <h3 className="text-lg font-serif font-bold text-slate-900 mb-4" style={{ color: '#0A1128' }}>Need Immediate Help?</h3>
+                <p className="text-sm text-slate-600 mb-6">
+                  If you're in crisis or need immediate support, please reach out to these services:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <a
+                    href="https://mensline.org.au"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-hover p-6 group rounded-lg"
+                  >
+                    <div className="font-serif font-bold text-slate-900 mb-2" style={{ color: '#0A1128' }}>
+                      MensLine Australia
+                    </div>
+                    <p className="text-sm text-slate-600 mb-3">
+                      24/7 support line for men. Professional, confidential.
+                    </p>
+                    <div className="font-mono font-bold" style={{ color: '#0A1128' }}>
+                      1300 78 99 78
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.beyondblue.org.au"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-hover p-6 group rounded-lg"
+                  >
+                    <div className="font-serif font-bold text-slate-900 mb-2" style={{ color: '#0A1128' }}>
+                      Beyond Blue
+                    </div>
+                    <p className="text-sm text-slate-600 mb-3">
+                      Mental health and emotional wellbeing support.
+                    </p>
+                    <div className="font-mono font-bold" style={{ color: '#0A1128' }}>
+                      1300 22 4636
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>

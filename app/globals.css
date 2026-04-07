@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,79 +7,96 @@
 @layer base {
   body {
     @apply bg-white text-slate-800 font-sans;
-    background-color: #f9faf8;
+    background-color: #F4F4F0;
     line-height: 1.65;
     font-size: 16px;
   }
 
-  /* Editorial Serif Headings - Authority & Trust (2026 Calm Tech) */
+  /* Editorial Serif Headings - Authority & Trust (2026 Awwwards-level) */
   h1 {
     @apply text-5xl md:text-6xl font-black text-slate-900 mb-6 font-serif;
-    letter-spacing: -0.02em;
-    color: #1a2b4c;
+    letter-spacing: -0.025em;
+    color: #0A1128;
+    font-weight: 700;
   }
 
   h2 {
     @apply text-3xl md:text-4xl font-bold text-slate-900 mt-8 mb-4 font-serif;
-    letter-spacing: -0.01em;
-    color: #1a2b4c;
+    letter-spacing: -0.015em;
+    color: #0A1128;
+    font-weight: 700;
   }
 
   h3 {
     @apply text-2xl font-bold text-slate-900 mt-6 mb-3 font-serif;
-    color: #1a2b4c;
+    color: #0A1128;
+    font-weight: 700;
   }
 
   h4 {
     @apply text-xl font-semibold text-slate-800 mt-4 mb-2 font-serif;
-    color: #1a2b4c;
+    color: #0A1128;
   }
 
   p {
     @apply mb-4 text-slate-700 leading-relaxed font-sans;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
   }
 
   a {
     @apply text-primary-600 hover:text-primary-700 underline transition-colors;
+    color: #0A1128;
   }
 
   strong {
     @apply font-bold text-slate-900;
+    color: #0A1128;
   }
 }
 
 @layer components {
-  /* Modern buttons - Soft, inviting, 2026 Calm Tech */
+  /* Modern buttons - Premium, inviting, 2026 Awwwards-level */
   .button {
     @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold transition-all border border-solid duration-200;
   }
 
   .button-primary {
-    @apply button bg-primary-600 text-white border-primary-600 hover:bg-primary-700 hover:border-primary-700 hover:shadow-md;
-    background-color: #1a2b4c;
+    @apply button bg-primary-600 text-white border-primary-600 hover:bg-primary-700 hover:border-primary-700 hover:shadow-lg;
+    background-color: #0A1128;
   }
 
   .button-secondary {
     @apply button bg-white text-slate-900 border-slate-200 hover:bg-slate-50 hover:shadow-sm;
-    background-color: #f9faf8;
+    background-color: #FFFFFF;
   }
 
   .button-outline {
     @apply button border-primary-600 text-primary-600 bg-white hover:bg-primary-50 hover:shadow-sm transition-all;
-    background-color: #f9faf8;
+    background-color: #FFFFFF;
+    color: #0A1128;
+    border-color: #0A1128;
   }
 
   .button-ghost {
     @apply button border-transparent text-primary-600 hover:bg-primary-50 hover:shadow-sm;
+    color: #0A1128;
   }
 
-  /* Cards with subtle shadow - 2026 editorial feel */
+  /* Cards - Pure white for elevation, diffuse shadows */
   .card {
-    @apply bg-white border border-solid border-slate-200 rounded-lg p-6 shadow-sm;
+    @apply bg-white border-none rounded-lg p-6 shadow transition-all duration-200;
   }
 
   .card-hover {
-    @apply card hover:border-slate-300 hover:shadow-md transition-all duration-200 cursor-pointer;
+    @apply card hover:shadow-lg cursor-pointer;
+  }
+
+  /* Glassmorphic elements */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    @apply border border-solid border-white/20;
   }
 
   .badge {
@@ -164,16 +181,28 @@ html {
   }
 }
 
-/* Stat blocks - authority indicators with calm design */
+/* Stat blocks - authority indicators with premium depth */
 .stat-block {
-  @apply border border-solid border-slate-200 rounded-lg p-6 text-center shadow-sm bg-white hover:shadow-md transition-all duration-200;
+  @apply rounded-lg p-8 text-center shadow bg-white hover:shadow-lg transition-all duration-200;
+  border: none;
+}
+
+.stat-block:nth-child(odd) {
+  background: radial-gradient(circle at center, rgba(90, 117, 73, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.stat-block:nth-child(even) {
+  background: radial-gradient(circle at center, rgba(166, 120, 56, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
 }
 
 .stat-number {
   @apply text-4xl md:text-5xl font-black mb-2 font-serif;
-  color: #1a2b4c;
+  color: #0A1128;
+  letter-spacing: -0.02em;
 }
 
 .stat-label {
   @apply text-slate-700 font-medium;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }

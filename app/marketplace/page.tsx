@@ -47,8 +47,8 @@ export default function MarketplacePage() {
       <Header />
 
       <main>
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-slate-100 to-slate-50 py-12">
+        {/* Hero - Sophisticated background */}
+        <section style={{ backgroundColor: '#F4F4F0' }} className="py-12">
           <div className="container-section">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               Marketplace
@@ -60,7 +60,7 @@ export default function MarketplacePage() {
         </section>
 
         {/* Search and Filters */}
-        <section className="py-12 border-b border-slate-200">
+        <section className="py-12 border-b border-slate-100" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container-section">
             <div className="space-y-6">
               {/* Search */}
@@ -73,7 +73,8 @@ export default function MarketplacePage() {
                   placeholder="Search by service, location, or keyword..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-sm focus:outline-none focus:border-accent-600 focus:ring-2 focus:ring-accent-50"
+                  className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:outline-none focus:border-primary-600 focus:ring-2 focus:ring-primary-50 transition-colors"
+                  style={{ borderColor: '#e5e7eb' }}
                 />
               </div>
 
@@ -87,7 +88,8 @@ export default function MarketplacePage() {
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-sm focus:outline-none focus:border-accent-600 focus:ring-2 focus:ring-accent-50"
+                    className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:outline-none focus:border-primary-600 focus:ring-2 focus:ring-primary-50 transition-colors"
+                    style={{ borderColor: '#e5e7eb' }}
                   >
                     <option value="">All Categories</option>
                     {categories.map((cat) => (
@@ -106,7 +108,8 @@ export default function MarketplacePage() {
                   <select
                     value={selectedState}
                     onChange={(e) => setSelectedState(e.target.value)}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-sm focus:outline-none focus:border-accent-600 focus:ring-2 focus:ring-accent-50"
+                    className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:outline-none focus:border-primary-600 focus:ring-2 focus:ring-primary-50 transition-colors"
+                    style={{ borderColor: '#e5e7eb' }}
                   >
                     <option value="">All Locations</option>
                     {states.map((state) => (
@@ -138,7 +141,7 @@ export default function MarketplacePage() {
         </section>
 
         {/* Results */}
-        <section className="py-16">
+        <section className="py-16" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container-section">
             <div className="mb-8">
               <p className="text-slate-600">
@@ -150,59 +153,78 @@ export default function MarketplacePage() {
 
             {filteredVendors.length > 0 ? (
               <div className="space-y-6">
-                {filteredVendors.map((vendor) => {
+                {filteredVendors.map((vendor, idx) => {
                   const categoryInfo = getCategoryInfo(vendor.category);
+                  const colorCodeMap: Record<string, { bg: string; text: string }> = {
+                    'Financial': { bg: '#f0fdf4', text: '#5a7549' }, // Soft sage
+                    'Legal': { bg: '#f0f4f8', text: '#0A1128' }, // Soft slate
+                    'Therapist': { bg: '#faf8f5', text: '#a67838' }, // Soft sand
+                    'Mental Health': { bg: '#f0f4f8', text: '#4b5563' }, // Muted slate
+                  };
+                  const serviceColors = colorCodeMap[categoryInfo?.name || 'default'] || { bg: '#f3f4f6', text: '#6b7280' };
+
                   return (
                     <Link key={vendor.id} href={`/marketplace/${vendor.id}`}>
-                      <div className="card-hover group h-full">
+                      <div className="group h-full rounded-lg p-6 transition-all duration-200 shadow hover:shadow-lg cursor-pointer" 
+                           style={{ 
+                             backgroundColor: idx % 2 === 0 ? '#FFFFFF' : '#F7F7F8',
+                             border: '1px solid #e5e7eb'
+                           }}>
                         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                           <div className="flex-1">
-                            <div className="flex items-start gap-3 mb-3">
+                            <div className="flex items-start gap-4 mb-4">
                               {categoryInfo && (
-                                <span className="text-3xl">{categoryInfo.icon}</span>
+                                <span className="text-3xl flex-shrink-0">{categoryInfo.icon}</span>
                               )}
                               <div className="flex-1">
-                                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-accent-600 transition-colors">
+                                <h3 className="text-2xl font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-1" 
+                                    style={{ color: '#0A1128' }}>
                                   {vendor.name}
                                 </h3>
-                                <p className="text-sm text-slate-500 mt-1">
+                                <p className="text-sm text-slate-500">
                                   {categoryInfo?.name}
                                 </p>
                               </div>
                             </div>
 
-                            <p className="text-slate-700 mb-4">
+                            <p className="text-slate-700 mb-4 leading-relaxed">
                               {vendor.description}
                             </p>
 
                             <div className="mb-4">
-                              <p className="text-sm text-slate-600 font-semibold mb-2">
-                                Specialization:
+                              <p className="text-xs text-slate-600 font-semibold uppercase tracking-tight mb-2">
+                                Specialization
                               </p>
-                              <p className="text-slate-700">
+                              <p className="text-slate-700 text-sm">
                                 {vendor.specialization}
                               </p>
                             </div>
 
-                            <div className="flex flex-wrap gap-2 mb-4">
+                            {/* Color-coded service pills */}
+                            <div className="flex flex-wrap gap-2">
                               {vendor.services.slice(0, 3).map((service) => (
-                                <span key={service} className="badge">
+                                <span key={service} 
+                                      className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
+                                      style={{ 
+                                        backgroundColor: serviceColors.bg,
+                                        color: serviceColors.text
+                                      }}>
                                   {service}
                                 </span>
                               ))}
                               {vendor.services.length > 3 && (
-                                <span className="badge text-accent-600">
+                                <span className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600">
                                   +{vendor.services.length - 3} more
                                 </span>
                               )}
                             </div>
                           </div>
 
-                          <div className="md:w-48 md:flex-shrink-0">
+                          <div className="md:w-56 md:flex-shrink-0">
                             {/* Rating */}
                             <div className="mb-6">
                               <div className="flex items-center gap-2 mb-2">
-                                <span className="text-2xl font-bold text-accent-600">
+                                <span className="text-2xl font-bold" style={{ color: '#0A1128' }}>
                                   {vendor.rating}
                                 </span>
                                 <div className="flex text-yellow-400">
@@ -216,7 +238,7 @@ export default function MarketplacePage() {
 
                             {/* Location */}
                             <div className="mb-6">
-                              <p className="text-sm text-slate-600 font-semibold mb-1">
+                              <p className="text-xs text-slate-600 font-semibold uppercase tracking-tight mb-1">
                                 Location
                               </p>
                               <p className="text-slate-700">{vendor.location}</p>
@@ -224,28 +246,28 @@ export default function MarketplacePage() {
 
                             {/* Fee */}
                             <div className="mb-6">
-                              <p className="text-sm text-slate-600 font-semibold mb-1">
+                              <p className="text-xs text-slate-600 font-semibold uppercase tracking-tight mb-1">
                                 Consultation
                               </p>
-                              <p className="text-slate-700 text-sm">
+                              <p className="text-slate-700 text-sm font-medium">
                                 {vendor.consultationFee}
                               </p>
                             </div>
 
-                            {/* View Details Button */}
+                            {/* CTA Buttons - Prominent alignment right */}
                             <div className="flex flex-col gap-2">
-                              <button className="button-primary text-sm w-full hover:shadow-md transition-shadow">
-                                View Details
-                              </button>
                               <a
                                 href={vendor.website}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="button-secondary text-sm w-full text-center"
+                                className="button-primary text-sm w-full text-center"
                               >
                                 Visit Website
                               </a>
+                              <button className="button-outline text-sm w-full hover:shadow-md transition-shadow">
+                                View Details
+                              </button>
                             </div>
                           </div>
                         </div>

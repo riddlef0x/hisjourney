@@ -16,33 +16,33 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* Hero Section - Modern Mesh Gradient Background */}
+        {/* Hero Section - Sophisticated Mesh Gradient (Navy + Muted Slate + Warm Grey) */}
         <section className="relative py-24 md:py-32 overflow-hidden">
-          {/* Mesh Gradient Background - Slate + Warm Tones */}
+          {/* Mesh Gradient Background - Deep Navy + Slate + Warm Grey */}
           <div className="absolute inset-0 z-0">
             <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 600">
               <defs>
-                <radialGradient id="grad1" cx="20%" cy="50%" r="80%">
-                  <stop offset="0%" style={{ stopColor: '#1a2b4c', stopOpacity: '0.3' }} />
-                  <stop offset="100%" style={{ stopColor: '#f9faf8', stopOpacity: '0.1' }} />
+                <radialGradient id="grad1" cx="20%" cy="40%" r="85%">
+                  <stop offset="0%" style={{ stopColor: '#0A1128', stopOpacity: '0.15' }} />
+                  <stop offset="100%" style={{ stopColor: '#F4F4F0', stopOpacity: '0.05' }} />
                 </radialGradient>
-                <radialGradient id="grad2" cx="80%" cy="60%" r="70%">
-                  <stop offset="0%" style={{ stopColor: '#5a7549', stopOpacity: '0.2' }} />
-                  <stop offset="100%" style={{ stopColor: '#f9faf8', stopOpacity: '0.1' }} />
+                <radialGradient id="grad2" cx="75%" cy="65%" r="75%">
+                  <stop offset="0%" style={{ stopColor: '#4b5563', stopOpacity: '0.12' }} />
+                  <stop offset="100%" style={{ stopColor: '#F4F4F0', stopOpacity: '0.05' }} />
                 </radialGradient>
-                <radialGradient id="grad3" cx="50%" cy="100%" r="100%">
-                  <stop offset="0%" style={{ stopColor: '#a67838', stopOpacity: '0.15' }} />
-                  <stop offset="100%" style={{ stopColor: '#f9faf8', stopOpacity: '0.05' }} />
+                <radialGradient id="grad3" cx="50%" cy="110%" r="110%">
+                  <stop offset="0%" style={{ stopColor: '#8B7D6B', stopOpacity: '0.08' }} />
+                  <stop offset="100%" style={{ stopColor: '#F4F4F0', stopOpacity: '0.02' }} />
                 </radialGradient>
               </defs>
-              <rect width="1200" height="600" fill="#f9faf8"/>
+              <rect width="1200" height="600" fill="#F4F4F0"/>
               <rect width="1200" height="600" fill="url(#grad1)"/>
               <rect width="1200" height="600" fill="url(#grad2)"/>
               <rect width="1200" height="600" fill="url(#grad3)"/>
-              {/* Subtle animated circles for movement feel */}
-              <circle cx="150" cy="100" r="200" fill="url(#grad1)" opacity="0.4"/>
-              <circle cx="1000" cy="400" r="300" fill="url(#grad2)" opacity="0.3"/>
-              <circle cx="600" cy="550" r="250" fill="url(#grad3)" opacity="0.2"/>
+              {/* Subtle, slow-moving circles for sophisticated feel */}
+              <circle cx="150" cy="100" r="200" fill="url(#grad1)" opacity="0.3"/>
+              <circle cx="1000" cy="400" r="300" fill="url(#grad2)" opacity="0.25"/>
+              <circle cx="600" cy="550" r="250" fill="url(#grad3)" opacity="0.15"/>
             </svg>
           </div>
 
@@ -67,28 +67,32 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Authority Stats Section */}
-        <section className="py-16 border-t border-b border-slate-200" style={{ backgroundColor: '#f9faf8' }}>
+        {/* Authority Stats Section - Asymmetrical Bento Box */}
+        <section className="py-16 border-t border-b border-slate-100" style={{ backgroundColor: '#F4F4F0' }}>
           <div className="container-section">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              <div className="stat-block">
-                <div className="stat-number">39%</div>
-                <div className="stat-label">Men face housing insecurity post-divorce</div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+              {/* Large stat spanning 2 columns */}
+              <div className="stat-block md:col-span-2">
+                <div className="stat-number text-5xl md:text-6xl">39%</div>
+                <div className="stat-label text-base">Men face housing insecurity post-divorce</div>
               </div>
+              
+              {/* Regular stats */}
               <div className="stat-block">
                 <div className="stat-number">2.5x</div>
-                <div className="stat-label">Higher divorce rate among first marriages vs. later unions</div>
+                <div className="stat-label text-sm">Higher divorce rate among first marriages</div>
               </div>
+              
               <div className="stat-block">
                 <div className="stat-number">40%</div>
-                <div className="stat-label">Men report inadequate access to mental health support</div>
+                <div className="stat-label text-sm">Men report inadequate mental health access</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Fork in the Road - Pathways with Modern Design */}
-        <section className="py-16 md:py-20" style={{ backgroundColor: '#f9faf8' }}>
+        {/* Fork in the Road - Pathways with Premium SVG Icons */}
+        <section className="py-16 md:py-20" style={{ backgroundColor: '#F4F4F0' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-slate-900 mb-2">Your Fork in the Road</h2>
@@ -99,38 +103,47 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {categories.map((category) => {
-                // Category icons mapping
-                const iconMap: Record<string, { emoji: string; bgColor: string }> = {
-                  'Emotional': { emoji: '💭', bgColor: '#e8ecf5' },
-                  'Financial': { emoji: '💼', bgColor: '#f8faf8' },
-                  'Legal': { emoji: '⚖️', bgColor: '#faf8f5' },
-                  'Parenting': { emoji: '👨‍👧‍👦', bgColor: '#e8ecf5' },
-                  'Mental Health': { emoji: '🧠', bgColor: '#f8faf8' },
-                  'Career': { emoji: '🚀', bgColor: '#faf8f5' },
+                // SVG icon map - monochromatic, minimalist
+                const iconSVGMap: Record<string, string> = {
+                  'Emotional': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>`,
+                  'Financial': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h4v-2h-4v2zm6-7h-8v2h8V10zm0-4h-8v2h8V6z"/></svg>`,
+                  'Legal': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 9.5h-4v2h4v-2zm5-4h-9v2h9v-2z"/></svg>`,
+                  'Parenting': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-2c0-1.5 3.33-2.5 6-2.5s6 1 6 2.5v2z"/></svg>`,
+                  'Mental Health': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>`,
+                  'Career': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6h-2.18c-.4-1.16-1.52-2-2.82-2-1.3 0-2.42.84-2.82 2H4v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6zm-7-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/></svg>`,
                 };
                 
-                const icon = iconMap[category] || { emoji: '📌', bgColor: '#e8ecf5' };
+                const iconSVG = iconSVGMap[category] || iconSVGMap['Emotional'];
 
                 return (
                   <Link
                     key={category}
                     href={`/categories/${category.toLowerCase()}`}
-                    className="card-hover group p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-200"
+                    className="card-hover group p-8 rounded-lg shadow-default hover:shadow-lg transition-all duration-300"
                   >
-                    {/* Larger Icon Container */}
-                    <div className="mb-6 w-16 h-16 rounded-lg flex items-center justify-center text-5xl" style={{ backgroundColor: icon.bgColor }}>
-                      {icon.emoji}
+                    {/* Monochromatic SVG Icon */}
+                    <div className="mb-6 w-16 h-16 rounded-lg flex items-center justify-center text-slate-900 hover:text-primary-600 transition-colors" 
+                         style={{ color: '#0A1128' }}>
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="48"
+                        height="48"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        dangerouslySetInnerHTML={{ __html: iconSVG }}
+                      />
                     </div>
 
                     {/* Badge */}
                     <div className="mb-4">
-                      <div className="inline-block px-3 py-1.5 rounded-lg bg-sage-50 border border-sage-200 text-sage-700 text-xs font-semibold uppercase tracking-wide">
+                      <div className="inline-block px-3 py-1.5 rounded-lg bg-sage-50 border border-sage-200 text-sage-700 text-xs font-semibold uppercase tracking-tight">
                         Pathway
                       </div>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-serif font-bold text-slate-900 mb-3 group-hover:text-primary-700 transition-colors" style={{ color: '#1a2b4c' }}>
+                    <h3 className="text-xl font-serif font-bold text-slate-900 mb-3 group-hover:text-primary-600 transition-colors" style={{ color: '#0A1128' }}>
                       {category}
                     </h3>
 
@@ -139,10 +152,10 @@ export default function Home() {
                       Expert resources and protocols for navigating {category.toLowerCase()} challenges during your separation.
                     </p>
 
-                    {/* CTA */}
-                    <div className="text-primary-600 font-semibold text-sm group-hover:gap-2 inline-flex items-center transition-all duration-200">
+                    {/* CTA - Arrow animates on hover */}
+                    <div className="text-primary-600 font-semibold text-sm inline-flex items-center transition-all duration-200" style={{ color: '#0A1128' }}>
                       <span>Explore</span>
-                      <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+                      <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 ml-1">→</span>
                     </div>
                   </Link>
                 );
@@ -152,7 +165,7 @@ export default function Home() {
         </section>
 
         {/* Featured Marketplace Services */}
-        <section className="py-16 md:py-20">
+        <section className="py-16 md:py-20" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-slate-900 mb-2">Vetted Professionals & Services</h2>
@@ -166,27 +179,27 @@ export default function Home() {
                 <Link
                   key={vendor.id}
                   href={`/marketplace/${vendor.id}`}
-                  className="card-hover group rounded-lg"
+                  className="card-hover group rounded-lg p-6"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <p className="text-xs text-slate-500 uppercase tracking-wide font-semibold mb-1">
+                      <p className="text-xs text-slate-500 uppercase tracking-tight font-semibold mb-1">
                         Featured Service
                       </p>
-                      <h3 className="text-lg font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors" style={{ color: '#1a2b4c' }}>
+                      <h3 className="text-lg font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors" style={{ color: '#0A1128' }}>
                         {vendor.name}
                       </h3>
                     </div>
-                    <div className="text-2xl font-bold rounded-lg p-2" style={{ color: '#1a2b4c' }}>
+                    <div className="text-2xl font-bold rounded-lg p-2" style={{ color: '#0A1128' }}>
                       {vendor.rating}
                     </div>
                   </div>
                   <p className="text-sm text-slate-600 mb-4 line-clamp-2">
                     {vendor.description}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-200">
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                     <span className="text-xs text-slate-500">{vendor.location}</span>
-                    <span className="text-primary-600 font-semibold text-sm">
+                    <span className="font-semibold text-sm transition-colors duration-200" style={{ color: '#0A1128' }}>
                       View →
                     </span>
                   </div>
@@ -203,7 +216,7 @@ export default function Home() {
         </section>
 
         {/* Featured Articles - Bento Box Grid Layout */}
-        <section className="py-16 md:py-20" style={{ backgroundColor: '#f9faf8' }}>
+        <section className="py-16 md:py-20" style={{ backgroundColor: '#F4F4F0' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-slate-900 mb-2">Essential Reading</h2>
@@ -236,7 +249,7 @@ export default function Home() {
         </section>
 
         {/* The Masculine Operator - Why HisJourney */}
-        <section className="py-16 md:py-20" style={{ backgroundColor: '#f9faf8' }}>
+        <section className="py-16 md:py-20" style={{ backgroundColor: '#F4F4F0' }}>
           <div className="container-section">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
@@ -258,7 +271,7 @@ export default function Home() {
                     'Side-by-side growth mindset'
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-lg flex items-center justify-center mt-0.5" style={{ backgroundColor: '#1a2b4c' }}>
+                      <div className="flex-shrink-0 w-5 h-5 rounded-lg flex items-center justify-center mt-0.5 transition-colors" style={{ backgroundColor: '#0A1128' }}>
                         <span className="text-white text-xs font-bold">✓</span>
                       </div>
                       <span className="text-slate-700 font-sans">{item}</span>
@@ -267,7 +280,7 @@ export default function Home() {
                 </div>
 
                 <div className="border-t border-slate-200 pt-8">
-                  <p className="text-sm text-slate-600 mb-4 font-medium uppercase tracking-wide">
+                  <p className="text-sm text-slate-600 mb-4 font-medium uppercase tracking-tight">
                     Ready to take control?
                   </p>
                   <Link href="/contact" className="button-primary">
@@ -276,11 +289,15 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right side - Visual placeholder for future photography */}
-              <div className="rounded-lg h-96 border border-slate-200 flex items-center justify-center shadow-sm" style={{ backgroundColor: '#e8ecf5' }}>
+              {/* Right side - Sophisticated visual placeholder with gradient */}
+              <div className="rounded-lg h-96 flex items-center justify-center shadow" 
+                   style={{ 
+                     background: 'linear-gradient(135deg, rgba(90, 117, 73, 0.08) 0%, rgba(166, 120, 56, 0.06) 100%)',
+                     border: '1px solid rgba(10, 17, 40, 0.08)'
+                   }}>
                 <div className="text-center">
                   <div className="text-6xl mb-4 font-black" style={{ color: '#5a7549' }}>⚓</div>
-                  <p className="text-slate-600 font-medium font-serif">
+                  <p className="text-slate-700 font-medium font-serif">
                     Grounded. Structured. Forward.
                   </p>
                   <p className="text-xs text-slate-500 mt-2">
@@ -293,7 +310,7 @@ export default function Home() {
         </section>
 
         {/* Crisis Support - Direct & Honest */}
-        <section className="py-16 border-y border-slate-200" style={{ backgroundColor: '#f9faf8' }}>
+        <section className="py-16 border-y border-slate-100" style={{ backgroundColor: '#F4F4F0' }}>
           <div className="container-section">
             <div className="max-w-3xl">
               <h2 className="text-slate-900 mb-4">In Crisis? You Have Options.</h2>
@@ -308,13 +325,13 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="card-hover p-6 group rounded-lg"
                 >
-                  <div className="font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#1a2b4c' }}>
+                  <div className="font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0A1128' }}>
                     MensLine Australia
                   </div>
                   <p className="text-slate-700 text-sm mb-4 font-sans">
                     24/7 support line for men. Professional, confidential.
                   </p>
-                  <div className="font-mono font-bold text-lg" style={{ color: '#1a2b4c' }}>
+                  <div className="font-mono font-bold text-lg" style={{ color: '#0A1128' }}>
                     1300 78 99 78
                   </div>
                 </a>
@@ -325,13 +342,13 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="card-hover p-6 group rounded-lg"
                 >
-                  <div className="font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#1a2b4c' }}>
+                  <div className="font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0A1128' }}>
                     Beyond Blue
                   </div>
                   <p className="text-slate-700 text-sm mb-4 font-sans">
                     Mental health and emotional wellbeing support.
                   </p>
-                  <div className="font-mono font-bold text-lg" style={{ color: '#1a2b4c' }}>
+                  <div className="font-mono font-bold text-lg" style={{ color: '#0A1128' }}>
                     1300 22 4636
                   </div>
                 </a>

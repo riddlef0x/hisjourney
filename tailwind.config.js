@@ -7,13 +7,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // Serif for headings (Editorial, Authority, Trust)
-        serif: ['Merriweather', 'Lora', 'Georgia', 'serif'],
-        // Sans-serif for body (Crisp, Readable, Modern)
-        sans: ['"Plus Jakarta Sans"', 'Inter', '"DM Sans"', 'system-ui', 'sans-serif'],
+        // High-contrast Editorial Serifs - Instrument Serif, PP Editorial New, Ogg
+        serif: ['\'Instrument Serif\'', '\'PP Editorial New\'', '\'Ogg\'', 'Georgia', 'serif'],
+        // Stark geometric sans-serif - Inter, Geist
+        sans: ['\'Inter\'', '\'Geist\'', '\'Plus Jakarta Sans\'', 'system-ui', 'sans-serif'],
       },
       colors: {
-        // Navy Blue - 2026 Primary (Sophisticated, Calm)
+        // Navy Blue - Deep, almost-black navy (#0A1128) - 2026 Primary
         primary: {
           50: '#f5f7fb',
           100: '#e8ecf5',
@@ -21,10 +21,10 @@ module.exports = {
           300: '#a8bedb',
           400: '#6699cc',
           500: '#2d5ba8',
-          600: '#1a2b4c', // NAVY - SOPHISTICATED PRIMARY
-          700: '#152340',
-          800: '#0f1a30',
-          900: '#0a0f1f',
+          600: '#0A1128', // DEEP NAVY - SOPHISTICATED PRIMARY
+          700: '#080c1a',
+          800: '#050812',
+          900: '#03050a',
         },
         // Warm Sage Green - Secondary (Calming, Earthy)
         sage: {
@@ -65,6 +65,11 @@ module.exports = {
           800: '#1f2937',
           900: '#111827',
         },
+        // Off-white backgrounds (warm, sophisticated)
+        'off-white': {
+          50: '#F7F7F8',
+          100: '#F4F4F0',
+        },
       },
       borderRadius: {
         none: '0px',
@@ -77,26 +82,29 @@ module.exports = {
         border: '1px',
       },
       boxShadow: {
-        // Subtle, diffuse shadows for 2026 Modern Calm
+        // Diffuse shadows - more sophisticated
         none: 'none',
-        xs: '0 2px 4px rgba(0, 0, 0, 0.03)',
-        sm: '0 4px 8px rgba(0, 0, 0, 0.04)',
-        DEFAULT: '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
-        md: '0 12px 48px -12px rgba(0, 0, 0, 0.06)',
-        lg: '0 20px 60px -15px rgba(0, 0, 0, 0.08)',
+        xs: '0 2px 4px rgba(0, 0, 0, 0.02)',
+        sm: '0 4px 8px rgba(0, 0, 0, 0.03)',
+        DEFAULT: '0 12px 32px -4px rgba(10, 17, 40, 0.04)',
+        md: '0 12px 48px -8px rgba(10, 17, 40, 0.05)',
+        lg: '0 20px 60px -12px rgba(10, 17, 40, 0.08)',
       },
       typography: {
         DEFAULT: {
           css: {
             color: '#4b5563',
             a: {
-              color: '#1a2b4c',
+              color: '#0A1128',
               '&:hover': {
-                color: '#0f1a30',
+                color: '#080c1a',
               },
             },
           },
         },
+      },
+      backdropFilter: {
+        'blur': 'blur(16px)',
       },
     },
   },
