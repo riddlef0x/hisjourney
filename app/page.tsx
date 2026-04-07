@@ -17,7 +17,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section - Pure clean background */}
-        <section className="relative py-24 md:py-32 overflow-hidden" style={{ background: 'radial-gradient(circle at 50% 0%, #E8E8ED 0%, #FAFAFA 50%)' }}>
+        <section className="relative py-24 md:py-32 overflow-hidden mb-20" style={{ background: 'radial-gradient(circle at 50% 0%, #E8E8ED 0%, #FAFAFA 50%)' }}>
           {/* Content - Positioned above gradient */}
           <div className="container-section relative z-10">
             <div className="max-w-3xl">
@@ -40,7 +40,7 @@ export default function Home() {
         </section>
 
         {/* Authority Stats Section - Asymmetrical Bento Box */}
-        <section className="py-32 border-t border-b border-slate-100" style={{ backgroundColor: '#FAFAFA' }}>
+        <section className="py-32 border-t border-b border-slate-100 mb-20" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container-section">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
               {/* Large stat spanning 2 columns */}
@@ -63,8 +63,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Fork in the Road - Pathways with Premium SVG Icons */}
-        <section className="py-32 md:py-40" style={{ backgroundColor: '#FAFAFA' }}>
+        {/* Fork in the Road - Pathways */}
+        <section className="py-32 md:py-40 mb-20" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-slate-900 mb-2">Your Fork in the Road</h2>
@@ -75,38 +75,12 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {categories.map((category) => {
-                // SVG icon map - monochromatic, minimalist
-                const iconSVGMap: Record<string, string> = {
-                  'Emotional': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>`,
-                  'Financial': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h4v-2h-4v2zm6-7h-8v2h8V10zm0-4h-8v2h8V6z"/></svg>`,
-                  'Legal': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 9.5h-4v2h4v-2zm5-4h-9v2h9v-2z"/></svg>`,
-                  'Parenting': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H3v-2c0-1.5 3.33-2.5 6-2.5s6 1 6 2.5v2z"/></svg>`,
-                  'Mental Health': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>`,
-                  'Career': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6h-2.18c-.4-1.16-1.52-2-2.82-2-1.3 0-2.42.84-2.82 2H4v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6zm-7-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/></svg>`,
-                };
-                
-                const iconSVG = iconSVGMap[category] || iconSVGMap['Emotional'];
-
                 return (
                   <Link
                     key={category}
                     href={`/categories/${category.toLowerCase()}`}
                     className="card-hover group"
                   >
-                    {/* Monochromatic SVG Icon */}
-                    <div className="mb-6 w-16 h-16 rounded-lg flex items-center justify-center text-slate-900 hover:text-primary-600 transition-colors" 
-                         style={{ color: '#0A1128' }}>
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="48"
-                        height="48"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        dangerouslySetInnerHTML={{ __html: iconSVG }}
-                      />
-                    </div>
-
                     {/* Badge */}
                     <div className="mb-4">
                       <div className="inline-block px-3 py-1.5 rounded-lg bg-sage-50 border border-sage-200 text-sage-700 text-xs font-semibold uppercase tracking-tight">
@@ -115,7 +89,7 @@ export default function Home() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-serif font-bold text-slate-900 mb-3 group-hover:text-primary-600 transition-colors" style={{ color: '#0A1128' }}>
+                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-600 transition-colors" style={{ color: '#0A1128', fontSize: '1.25rem', fontWeight: 'bold' }}>
                       {category}
                     </h3>
 
@@ -137,7 +111,7 @@ export default function Home() {
         </section>
 
         {/* Featured Marketplace Services */}
-        <section className="py-16 md:py-20" style={{ backgroundColor: '#FFFFFF' }}>
+        <section className="py-16 md:py-20 mb-20" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-slate-900 mb-2">Vetted Professionals & Services</h2>
@@ -188,7 +162,7 @@ export default function Home() {
         </section>
 
         {/* Featured Articles - Bento Box Grid Layout */}
-        <section className="py-32 md:py-40" style={{ backgroundColor: '#FAFAFA' }}>
+        <section className="py-32 md:py-40 mb-20" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-slate-900 mb-2">Essential Reading</h2>
@@ -221,7 +195,7 @@ export default function Home() {
         </section>
 
         {/* The Masculine Operator - Why HisJourney */}
-        <section className="py-32 md:py-40" style={{ backgroundColor: '#FAFAFA' }}>
+        <section className="py-32 md:py-40 mb-20" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container-section">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>

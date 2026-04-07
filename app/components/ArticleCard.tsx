@@ -32,26 +32,25 @@ export function ArticleCard({ article, featured = false }: ArticleCardProps) {
            border: '1px solid rgba(0, 0, 0, 0.04)',
            boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04)'
          }}>
-      {/* Thumbnail - Solid Navy blue background with article title overlay */}
+      {/* Image Placeholder - Soft grey background */}
       <div className={`flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:shadow-lg ${
         featured ? 'h-64 md:h-80' : 'h-40'
       }`}
         style={{
-          background: '#0A1128',
-          padding: '24px'
+          background: '#E5E7EB'
         }}>
-        {/* Title overlay in white */}
-        <div className="relative w-full h-full flex items-center justify-center text-center">
-          <h3 className={`font-serif font-bold text-white leading-tight ${
-            featured ? 'text-2xl md:text-3xl' : 'text-lg'
-          }`}>
-            {article.title}
-          </h3>
-        </div>
       </div>
 
       {/* Content wrapper with padding */}
       <div style={{ padding: '32px' }} className="flex flex-col flex-grow">
+        {/* Article Title */}
+        <h3 className={`font-bold text-slate-900 leading-tight mb-4 ${
+          featured ? 'text-2xl' : 'text-lg'
+        }`}
+        style={{ color: '#0A1128' }}>
+          {article.title}
+        </h3>
+
         {/* Categories/Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
           {article.categories.slice(0, featured ? 3 : 2).map((cat) => (

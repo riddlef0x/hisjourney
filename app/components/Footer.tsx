@@ -9,10 +9,10 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#0A1128' }}>
-                <span className="text-white font-black text-sm font-serif">HJ</span>
+                <span className="text-white font-black text-sm">HJ</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-serif font-bold" style={{ color: '#0A1128' }}>HisJourney</span>
+                <span className="font-bold" style={{ color: '#0A1128' }}>HisJourney</span>
                 <span className="text-xs text-slate-600">Divorce Support</span>
               </div>
             </div>
@@ -23,7 +23,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-serif font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#0A1128' }}>Quick Links</h3>
+            <h3 className="font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#0A1128' }}>Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/articles" className="text-slate-700 hover:text-primary-600 transition-colors">
@@ -50,7 +50,7 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="font-serif font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#0A1128' }}>Resources</h3>
+            <h3 className="font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#0A1128' }}>Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="https://www.relationships.org.au" target="_blank" rel="noopener noreferrer" className="text-slate-700 hover:text-primary-600 transition-colors">
@@ -77,7 +77,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-serif font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#0A1128' }}>Need Support?</h3>
+            <h3 className="font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#0A1128' }}>Need Support?</h3>
             <p className="text-sm text-slate-700 mb-4">
               If you're going through a difficult time, reach out for support.
             </p>

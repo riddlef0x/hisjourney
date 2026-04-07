@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,41 +11,44 @@
     line-height: 1.6;
     font-size: 16px;
     color: #1D1D1F;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  /* Editorial Serif Headings - Authority & Trust (2026 Awwwards-level) */
+  /* Clean, legible headings with Inter sans-serif */
   h1 {
-    @apply text-5xl md:text-6xl font-black text-slate-900 mb-6 font-serif;
-    letter-spacing: -0.025em;
+    @apply text-5xl md:text-6xl font-black text-slate-900 mb-6;
     color: #0A1128;
     font-weight: 700;
     line-height: 1.1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl font-bold text-slate-900 mt-8 mb-4 font-serif;
-    letter-spacing: -0.015em;
+    @apply text-3xl md:text-4xl font-bold text-slate-900 mt-8 mb-4;
     color: #0A1128;
     font-weight: 700;
     line-height: 1.15;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
   h3 {
-    @apply text-2xl font-bold text-slate-900 mt-6 mb-3 font-serif;
+    @apply text-2xl font-bold text-slate-900 mt-6 mb-3;
     color: #0A1128;
     font-weight: 700;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
   h4 {
-    @apply text-xl font-semibold text-slate-800 mt-4 mb-2 font-serif;
+    @apply text-xl font-semibold text-slate-800 mt-4 mb-2;
     color: #0A1128;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
   p {
     @apply mb-4 text-slate-700 leading-relaxed font-sans;
     line-height: 1.6;
-    letter-spacing: -0.005em;
     color: #1D1D1F;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
   a {
@@ -156,11 +159,13 @@ html {
 }
 
 .prose h2 {
-  @apply text-2xl font-bold mt-8 mb-4 font-serif text-primary-900;
+  @apply text-2xl font-bold mt-8 mb-4 text-primary-900;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .prose h3 {
-  @apply text-xl font-bold mt-6 mb-3 font-serif text-primary-900;
+  @apply text-xl font-bold mt-6 mb-3 text-primary-900;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .prose a {
@@ -212,10 +217,10 @@ html {
 }
 
 .stat-number {
-  @apply font-black font-serif mb-2;
+  @apply font-black mb-2;
   color: #0A1128;
-  letter-spacing: -0.02em;
   font-size: 3rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 .stat-label {
