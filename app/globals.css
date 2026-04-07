@@ -7,9 +7,10 @@
 @layer base {
   body {
     @apply bg-white text-slate-800 font-sans;
-    background-color: #F4F4F0;
-    line-height: 1.65;
+    background-color: #FAFAFA;
+    line-height: 1.6;
     font-size: 16px;
+    color: #1D1D1F;
   }
 
   /* Editorial Serif Headings - Authority & Trust (2026 Awwwards-level) */
@@ -18,6 +19,7 @@
     letter-spacing: -0.025em;
     color: #0A1128;
     font-weight: 700;
+    line-height: 1.1;
   }
 
   h2 {
@@ -25,6 +27,7 @@
     letter-spacing: -0.015em;
     color: #0A1128;
     font-weight: 700;
+    line-height: 1.15;
   }
 
   h3 {
@@ -42,6 +45,7 @@
     @apply mb-4 text-slate-700 leading-relaxed font-sans;
     line-height: 1.6;
     letter-spacing: -0.005em;
+    color: #1D1D1F;
   }
 
   a {
@@ -83,13 +87,24 @@
     color: #0A1128;
   }
 
-  /* Cards - Pure white for elevation, diffuse shadows */
+  /* Cards - Pure white for elevation, diffuse shadows - EXACT SPEC */
   .card {
-    @apply bg-white border-none rounded-lg p-6 shadow transition-all duration-200;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    padding: 32px;
+    @apply transition-all duration-300;
   }
 
   .card-hover {
     @apply card hover:shadow-lg cursor-pointer;
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
   }
 
   /* Glassmorphic elements */
@@ -181,28 +196,32 @@ html {
   }
 }
 
-/* Stat blocks - authority indicators with premium depth */
+/* Stat blocks - authority indicators with premium depth - EXACT SPEC */
 .stat-block {
-  @apply rounded-lg p-8 text-center shadow bg-white hover:shadow-lg transition-all duration-200;
-  border: none;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  padding: 32px;
+  @apply text-center transition-all duration-300;
 }
 
-.stat-block:nth-child(odd) {
-  background: radial-gradient(circle at center, rgba(90, 117, 73, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
-}
-
-.stat-block:nth-child(even) {
-  background: radial-gradient(circle at center, rgba(166, 120, 56, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+.stat-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
 .stat-number {
-  @apply text-4xl md:text-5xl font-black mb-2 font-serif;
+  @apply font-black font-serif mb-2;
   color: #0A1128;
   letter-spacing: -0.02em;
+  font-size: 3rem;
 }
 
 .stat-label {
-  @apply text-slate-700 font-medium;
-  font-size: 0.95rem;
+  @apply font-medium uppercase;
+  color: #1D1D1F;
+  font-size: 0.875rem;
   line-height: 1.5;
+  letter-spacing: 0.05em;
 }

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-100 mt-20" style={{ backgroundColor: '#F4F4F0' }}>
+    <footer className="border-t border-slate-100 mt-20" style={{ backgroundColor: '#FAFAFA' }}>
       <div className="container-section py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}

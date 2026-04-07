@@ -16,36 +16,8 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* Hero Section - Sophisticated Mesh Gradient (Navy + Muted Slate + Warm Grey) */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
-          {/* Mesh Gradient Background - Deep Navy + Slate + Warm Grey */}
-          <div className="absolute inset-0 z-0">
-            <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 600">
-              <defs>
-                <radialGradient id="grad1" cx="20%" cy="40%" r="85%">
-                  <stop offset="0%" style={{ stopColor: '#0A1128', stopOpacity: '0.15' }} />
-                  <stop offset="100%" style={{ stopColor: '#F4F4F0', stopOpacity: '0.05' }} />
-                </radialGradient>
-                <radialGradient id="grad2" cx="75%" cy="65%" r="75%">
-                  <stop offset="0%" style={{ stopColor: '#4b5563', stopOpacity: '0.12' }} />
-                  <stop offset="100%" style={{ stopColor: '#F4F4F0', stopOpacity: '0.05' }} />
-                </radialGradient>
-                <radialGradient id="grad3" cx="50%" cy="110%" r="110%">
-                  <stop offset="0%" style={{ stopColor: '#8B7D6B', stopOpacity: '0.08' }} />
-                  <stop offset="100%" style={{ stopColor: '#F4F4F0', stopOpacity: '0.02' }} />
-                </radialGradient>
-              </defs>
-              <rect width="1200" height="600" fill="#F4F4F0"/>
-              <rect width="1200" height="600" fill="url(#grad1)"/>
-              <rect width="1200" height="600" fill="url(#grad2)"/>
-              <rect width="1200" height="600" fill="url(#grad3)"/>
-              {/* Subtle, slow-moving circles for sophisticated feel */}
-              <circle cx="150" cy="100" r="200" fill="url(#grad1)" opacity="0.3"/>
-              <circle cx="1000" cy="400" r="300" fill="url(#grad2)" opacity="0.25"/>
-              <circle cx="600" cy="550" r="250" fill="url(#grad3)" opacity="0.15"/>
-            </svg>
-          </div>
-
+        {/* Hero Section - Pure clean background */}
+        <section className="relative py-24 md:py-32 overflow-hidden" style={{ background: 'radial-gradient(circle at 50% 0%, #E8E8ED 0%, #FAFAFA 50%)' }}>
           {/* Content - Positioned above gradient */}
           <div className="container-section relative z-10">
             <div className="max-w-3xl">
@@ -68,7 +40,7 @@ export default function Home() {
         </section>
 
         {/* Authority Stats Section - Asymmetrical Bento Box */}
-        <section className="py-16 border-t border-b border-slate-100" style={{ backgroundColor: '#F4F4F0' }}>
+        <section className="py-32 border-t border-b border-slate-100" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container-section">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
               {/* Large stat spanning 2 columns */}
@@ -92,7 +64,7 @@ export default function Home() {
         </section>
 
         {/* Fork in the Road - Pathways with Premium SVG Icons */}
-        <section className="py-16 md:py-20" style={{ backgroundColor: '#F4F4F0' }}>
+        <section className="py-32 md:py-40" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-slate-900 mb-2">Your Fork in the Road</h2>
@@ -119,7 +91,7 @@ export default function Home() {
                   <Link
                     key={category}
                     href={`/categories/${category.toLowerCase()}`}
-                    className="card-hover group p-8 rounded-lg shadow-default hover:shadow-lg transition-all duration-300"
+                    className="card-hover group"
                   >
                     {/* Monochromatic SVG Icon */}
                     <div className="mb-6 w-16 h-16 rounded-lg flex items-center justify-center text-slate-900 hover:text-primary-600 transition-colors" 
@@ -179,7 +151,7 @@ export default function Home() {
                 <Link
                   key={vendor.id}
                   href={`/marketplace/${vendor.id}`}
-                  className="card-hover group rounded-lg p-6"
+                  className="card-hover group"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div>
@@ -216,7 +188,7 @@ export default function Home() {
         </section>
 
         {/* Featured Articles - Bento Box Grid Layout */}
-        <section className="py-16 md:py-20" style={{ backgroundColor: '#F4F4F0' }}>
+        <section className="py-32 md:py-40" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-slate-900 mb-2">Essential Reading</h2>
@@ -249,7 +221,7 @@ export default function Home() {
         </section>
 
         {/* The Masculine Operator - Why HisJourney */}
-        <section className="py-16 md:py-20" style={{ backgroundColor: '#F4F4F0' }}>
+        <section className="py-32 md:py-40" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container-section">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
@@ -310,7 +282,7 @@ export default function Home() {
         </section>
 
         {/* Crisis Support - Direct & Honest */}
-        <section className="py-16 border-y border-slate-100" style={{ backgroundColor: '#F4F4F0' }}>
+        <section className="py-32 border-y border-slate-100" style={{ backgroundColor: '#FAFAFA' }}>
           <div className="container-section">
             <div className="max-w-3xl">
               <h2 className="text-slate-900 mb-4">In Crisis? You Have Options.</h2>
@@ -323,7 +295,7 @@ export default function Home() {
                   href="https://mensline.org.au" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="card-hover p-6 group rounded-lg"
+                  className="card-hover group"
                 >
                   <div className="font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0A1128' }}>
                     MensLine Australia
@@ -340,7 +312,7 @@ export default function Home() {
                   href="https://www.beyondblue.org.au" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="card-hover p-6 group rounded-lg"
+                  className="card-hover group"
                 >
                   <div className="font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0A1128' }}>
                     Beyond Blue
