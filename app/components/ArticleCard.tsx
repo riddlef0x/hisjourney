@@ -21,10 +21,13 @@ export function ArticleCard({ article, featured = false }: ArticleCardProps) {
            borderRadius: '16px',
            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
          }}>
-      {/* Image Placeholder - Top element MUST be image placeholder */}
+      {/* Image Placeholder - Top element MUST be image placeholder - NOW WITH REAL IMAGES */}
       <div className={`flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:shadow-lg article-image`}
         style={{
           backgroundColor: '#E5E7EB !important',
+          backgroundImage: `url('https://picsum.photos/seed/${article.slug}/600/400')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           width: '100% !important',
           height: '220px !important',
           borderRadius: '12px 12px 0 0 !important',

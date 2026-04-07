@@ -2,17 +2,17 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="border-t border-gray-200" style={{ backgroundColor: '#F9FAFB' }}>
+    <footer className="border-t border-gray-200" style={{ backgroundColor: '#FAFAF7' }}>
       <div className="container-section py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#111827' }}>
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#0B253A' }}>
                 <span className="text-white font-black text-sm">HJ</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold" style={{ color: '#111827' }}>HisJourney</span>
+                <span className="font-bold" style={{ color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif" }}>HisJourney</span>
                 <span className="text-xs text-gray-600">Divorce Support</span>
               </div>
             </div>
@@ -23,7 +23,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#111827' }}>Quick Links</h3>
+            <h3 className="font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#0B253A' }}>Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/articles" className="text-gray-600 hover:text-primary-600 transition-colors">
@@ -50,7 +50,7 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#111827' }}>Resources</h3>
+            <h3 className="font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#0B253A' }}>Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="https://www.relationships.org.au" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-primary-600 transition-colors">
@@ -77,7 +77,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#111827' }}>Need Support?</h3>
+            <h3 className="font-bold mb-4 text-sm uppercase tracking-tight" style={{ color: '#0B253A' }}>Need Support?</h3>
             <p className="text-sm text-gray-600 mb-4">
               If you're going through a difficult time, reach out for support.
             </p>

@@ -6,11 +6,11 @@ export function Header() {
       <div className="container-section py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 group-hover:opacity-80" style={{ backgroundColor: '#111827' }}>
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-200 group-hover:opacity-80" style={{ backgroundColor: '#0B253A' }}>
               <span className="text-white font-black text-sm">HJ</span>
             </div>
             <div className="hidden sm:flex flex-col">
-              <span className="font-bold transition-colors" style={{ color: '#111827' }}>HisJourney</span>
+              <span className="font-bold transition-colors" style={{ color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif" }}>HisJourney</span>
               <span className="text-xs text-gray-600">Divorce Support</span>
             </div>
           </Link>

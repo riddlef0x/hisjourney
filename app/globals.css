@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,43 +7,44 @@
 @layer base {
   body {
     @apply bg-gray-50 text-gray-600 font-sans;
-    background-color: #F9FAFB;
+    background-color: #FAFAF7;
     line-height: 1.6;
     font-size: 16px;
     color: #4B5563;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
-  /* Hyper-clean sans-serif headings with tight tracking */
+  /* Editorial serif headings with tight tracking - PLAYFAIR DISPLAY */
   h1 {
-    @apply text-5xl md:text-6xl font-black text-gray-900 mb-6;
-    color: #111827;
+    @apply text-5xl md:text-6xl font-black mb-6;
+    color: #0B253A;
     font-weight: 700;
     line-height: 1.1;
-    font-family: 'Inter', system-ui, sans-serif;
-    letter-spacing: -0.02em;
+    font-family: 'Playfair Display', system-ui, serif;
+    letter-spacing: -0.03em;
+    font-size: 4rem !important;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl font-bold text-gray-900 mt-8 mb-4;
-    color: #111827;
+    @apply text-3xl md:text-4xl font-bold mt-8 mb-4;
+    color: #0B253A;
     font-weight: 700;
     line-height: 1.15;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Playfair Display', system-ui, serif;
     letter-spacing: -0.02em;
   }
 
   h3 {
-    @apply text-2xl font-bold text-gray-900 mt-6 mb-3;
-    color: #111827;
+    @apply text-2xl font-bold mt-6 mb-3;
+    color: #0B253A;
     font-weight: 700;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Playfair Display', system-ui, serif;
   }
 
   h4 {
-    @apply text-xl font-semibold text-gray-800 mt-4 mb-2;
-    color: #111827;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply text-xl font-semibold mt-4 mb-2;
+    color: #0B253A;
+    font-family: 'Playfair Display', system-ui, serif;
   }
 
   p {
@@ -65,20 +66,28 @@
 }
 
 @layer components {
-  /* Modern buttons - Premium, inviting, 2026 Awwwards-level */
+  /* Modern pill buttons - Premium, inviting, 2026 Awwwards-level - FULLY ROUNDED */
   .button {
-    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold transition-all border border-solid duration-200;
+    @apply inline-flex items-center justify-center px-5 py-2.5 rounded-full font-semibold transition-all border border-solid duration-200;
+    border-radius: 9999px;
   }
 
   .button-primary {
     @apply button bg-primary-600 text-white border-primary-600 hover:bg-primary-700 hover:border-primary-700 hover:shadow-lg;
-    background-color: #0A1128;
+    background-color: #0B253A;
+    border-color: #0B253A;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(11, 37, 58, 0.15);
   }
 
   .button-secondary {
     @apply button bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm;
     background-color: transparent !important;
-    color: #0A1128 !important;
+    color: #0B253A !important;
     border: 1px solid #E5E7EB !important;
     font-weight: 600 !important;
   }
@@ -86,33 +95,33 @@
   .button-outline {
     @apply button border-primary-600 text-primary-600 bg-white hover:bg-primary-50 hover:shadow-sm transition-all;
     background-color: #FFFFFF;
-    color: #0A1128;
-    border-color: #0A1128;
+    color: #0B253A;
+    border-color: #0B253A;
   }
 
   .button-ghost {
     @apply button border-transparent text-primary-600 hover:bg-primary-50 hover:shadow-sm;
-    color: #0A1128;
+    color: #0B253A;
   }
 
-  /* Cards - Pure white for elevation, diffuse shadows - EXACT SPEC */
+  /* Cards - Pure white for elevation, premium depth shadows - EXACT SPEC */
   .card {
     background: #FFFFFF;
     border: 1px solid #F3F4F6;
     border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(11, 37, 58, 0.03);
     padding: 32px;
     @apply transition-all duration-300;
   }
 
   .card-hover {
     @apply card hover:shadow-lg cursor-pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .card-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 32px rgba(11, 37, 58, 0.08);
   }
 
   /* Glassmorphic elements */
@@ -123,19 +132,27 @@
   }
 
   .badge {
-    @apply inline-block px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-700;
+    @apply inline-block px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700;
+    border-radius: 999px;
   }
 
   .badge-primary {
-    @apply badge bg-sage-50 text-sage-700 border border-solid border-sage-200;
-    background-color: #f8faf8;
-    color: #5a7549;
+    @apply badge border border-solid;
+    background-color: #F0F4F8;
+    color: #4A657A;
+    border-color: #E0E8F2;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   .badge-accent {
-    @apply badge bg-sand-50 text-sand-700 border border-solid border-sand-200;
-    background-color: #faf8f5;
-    color: #a67838;
+    @apply badge border border-solid;
+    background-color: #F0F4F8;
+    color: #4A657A;
+    border-color: #E0E8F2;
   }
 
   .container-section {
@@ -211,10 +228,10 @@ html {
   background: #FFFFFF !important;
   border: 1px solid #F3F4F6 !important;
   border-radius: 16px !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 20px rgba(11, 37, 58, 0.03) !important;
   padding: 32px !important;
   text-align: center !important;
-  transition: all 0.3s ease !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   flex: 0 1 auto !important;
 }
 
@@ -230,20 +247,20 @@ html {
 
 .stat-block:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(11, 37, 58, 0.08);
 }
 
 .stat-number {
   @apply font-black mb-2;
-  color: #111827;
+  color: #0B253A;
   font-size: 3rem;
   font-weight: 800;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Playfair Display', system-ui, serif;
 }
 
 .stat-label {
   @apply font-medium uppercase;
-  color: #6B7280;
+  color: #4A657A;
   font-size: 0.875rem;
   line-height: 1.5;
   letter-spacing: 0.05em;
@@ -256,7 +273,8 @@ html {
   margin-bottom: 12px !important;
   font-size: 1.25rem !important;
   display: block !important;
-  color: #111827 !important;
+  color: #0B253A !important;
+  font-family: 'Playfair Display', system-ui, serif !important;
 }
 
 /* Card paragraph fix - Stable line-height */
@@ -288,11 +306,14 @@ html {
   display: contents !important;
 }
 
-/* Image placeholder fix - Force exact dimensions */
+/* Image placeholder fix - Force exact dimensions with actual images */
 .article-image {
   height: 220px !important;
   width: 100% !important;
   background-color: #E5E7EB !important;
+  background-size: cover !important;
+  background-position: center !important;
   border-radius: 12px 12px 0 0 !important;
   flex-shrink: 0 !important;
+  transition: transform 0.3s ease;
 }

@@ -16,8 +16,8 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* Hero Section - Pure clean background */}
-        <section className="relative py-24 overflow-hidden" style={{ background: 'radial-gradient(circle at 50% 0%, #E8E8ED 0%, #F9FAFB 50%)' }}>
+        {/* Hero Section - Premium calm radial gradient */}
+        <section className="relative py-24 overflow-hidden" style={{ background: 'radial-gradient(circle at 50% -20%, #E3E9ED 0%, #FAFAF7 60%)' }}>
           {/* Content - Positioned above gradient */}
           <div className="container-section relative z-10">
             <div className="max-w-3xl">
@@ -40,7 +40,7 @@ export default function Home() {
         </section>
 
         {/* Authority Stats Section - Center Horizontally */}
-        <section className="py-24 border-t border-b border-gray-200" style={{ backgroundColor: '#F9FAFB' }}>
+        <section className="py-24 border-t border-b border-gray-200" style={{ backgroundColor: '#FAFAF7' }}>
           <div className="container-section">
             <div className="stats-container">
               {/* Large stat */}
@@ -64,7 +64,7 @@ export default function Home() {
         </section>
 
         {/* Fork in the Road - Pathways */}
-        <section className="py-24" style={{ backgroundColor: '#F9FAFB' }}>
+        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-gray-900 mb-2">Your Fork in the Road</h2>
@@ -85,15 +85,18 @@ export default function Home() {
                       border: '1px solid #F3F4F6',
                       borderRadius: '16px',
                       padding: '32px',
-                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+                      boxShadow: '0 4px 20px rgba(11, 37, 58, 0.03)',
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: '16px'
+                      gap: '16px',
+                      transition: 'transform 0.3s ease, box-shadow 0.3s ease'
                     }}
+                    onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 12px 32px rgba(11, 37, 58, 0.08)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 20px rgba(11, 37, 58, 0.03)'; e.currentTarget.style.transform = 'translateY(0)'; }}
                   >
                     {/* Badge */}
                     <div>
-                      <div className="inline-block px-3 py-1.5 rounded-lg bg-sage-50 border border-sage-200 text-sage-700 text-xs font-semibold uppercase tracking-tight">
+                      <div className="inline-block px-3 py-1.5 rounded-full bg-tag-light border border-tag-border text-tag-color text-xs font-semibold uppercase tracking-tight" style={{ backgroundColor: '#F0F4F8', color: '#4A657A', border: '1px solid #E0E8F2' }}>
                         Pathway
                       </div>
                     </div>
@@ -104,11 +107,12 @@ export default function Home() {
                       style={{ 
                         fontSize: '1.25rem !important',
                         fontWeight: '600 !important',
-                        color: '#111827 !important',
+                        color: '#0B253A !important',
                         textDecoration: 'none !important',
                         borderBottom: 'none !important',
                         marginBottom: '12px !important',
-                        display: 'block !important'
+                        display: 'block !important',
+                        fontFamily: "'Playfair Display', system-ui, serif"
                       }}>
                       {category}
                     </h3>
@@ -125,7 +129,7 @@ export default function Home() {
                     </p>
 
                     {/* CTA - Arrow animates on hover */}
-                    <div className="font-semibold text-sm inline-flex items-center transition-all duration-200" style={{ color: '#111827' }}>
+                    <div className="font-semibold text-sm inline-flex items-center transition-all duration-200" style={{ color: '#0B253A' }}>
                       <span>Explore</span>
                       <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 ml-1">→</span>
                     </div>
@@ -158,11 +162,11 @@ export default function Home() {
                       <p className="text-xs text-gray-500 uppercase tracking-tight font-semibold mb-1">
                         Featured Service
                       </p>
-                      <h3 className="text-lg font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors" style={{ color: '#111827' }}>
+                      <h3 className="text-lg font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors" style={{ color: '#0B253A' }}>
                         {vendor.name}
                       </h3>
                     </div>
-                    <div className="text-2xl font-bold rounded-lg p-2" style={{ color: '#111827' }}>
+                    <div className="text-2xl font-bold rounded-lg p-2" style={{ color: '#0B253A' }}>
                       {vendor.rating}
                     </div>
                   </div>
@@ -171,7 +175,7 @@ export default function Home() {
                   </p>
                   <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                     <span className="text-xs text-gray-500">{vendor.location}</span>
-                    <span className="font-semibold text-sm transition-colors duration-200" style={{ color: '#111827' }}>
+                    <span className="font-semibold text-sm transition-colors duration-200" style={{ color: '#0B253A' }}>
                       View →
                     </span>
                   </div>
@@ -188,7 +192,7 @@ export default function Home() {
         </section>
 
         {/* Featured Articles - Essential Reading Grid Layout */}
-        <section className="py-24" style={{ backgroundColor: '#F9FAFB' }}>
+        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-gray-900 mb-2">Essential Reading</h2>
@@ -229,7 +233,7 @@ export default function Home() {
         </section>
 
         {/* The Masculine Operator - Why HisJourney */}
-        <section className="py-24" style={{ backgroundColor: '#F9FAFB' }}>
+        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
           <div className="container-section">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
@@ -251,7 +255,7 @@ export default function Home() {
                     'Side-by-side growth mindset'
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-lg flex items-center justify-center mt-0.5 transition-colors" style={{ backgroundColor: '#111827' }}>
+                      <div className="flex-shrink-0 w-5 h-5 rounded-lg flex items-center justify-center mt-0.5 transition-colors" style={{ backgroundColor: '#0B253A' }}>
                         <span className="text-white text-xs font-bold">✓</span>
                       </div>
                       <span className="text-gray-600 font-sans">{item}</span>
@@ -269,19 +273,21 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right side - Sophisticated visual placeholder with gradient */}
-              <div className="rounded-lg h-96 flex items-center justify-center shadow" 
+              {/* Right side - Beautiful calming image with overlay */}
+              <div className="rounded-lg h-96 flex items-center justify-center shadow overflow-hidden" 
                    style={{ 
-                     background: 'linear-gradient(135deg, rgba(90, 117, 73, 0.08) 0%, rgba(166, 120, 56, 0.06) 100%)',
-                     border: '1px solid rgba(10, 17, 40, 0.08)'
+                     backgroundImage: `url('https://picsum.photos/seed/hisjourney/600/400')`,
+                     backgroundSize: 'cover',
+                     backgroundPosition: 'center',
+                     border: '1px solid #E0E8F2',
+                     boxShadow: '0 4px 20px rgba(11, 37, 58, 0.08)'
                    }}>
-                <div className="text-center">
-                  <div className="text-6xl mb-4 font-black" style={{ color: '#5a7549' }}>⚓</div>
-                  <p className="text-gray-700 font-medium font-serif">
+                {/* Overlay for text readability */}
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(11,37,58,0.3) 100%)' }}></div>
+                <div className="text-center relative z-10">
+                  <div className="text-6xl mb-4 font-black" style={{ color: '#FFFFFF' }}>⚓</div>
+                  <p className="text-white font-medium font-serif text-lg">
                     Grounded. Structured. Forward.
-                  </p>
-                  <p className="text-xs text-gray-500 mt-2">
-                    Photography & visual journey coming
                   </p>
                 </div>
               </div>
@@ -290,7 +296,7 @@ export default function Home() {
         </section>
 
         {/* Crisis Support - Direct & Honest */}
-        <section className="py-24 border-y border-gray-200" style={{ backgroundColor: '#F9FAFB' }}>
+        <section className="py-24 border-y border-gray-200" style={{ backgroundColor: '#FAFAF7' }}>
           <div className="container-section">
             <div className="max-w-3xl">
               <h2 className="text-gray-900 mb-4">In Crisis? You Have Options.</h2>
@@ -305,13 +311,13 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="card-hover group"
                 >
-                  <div className="font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#111827' }}>
+                  <div className="font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0B253A' }}>
                     MensLine Australia
                   </div>
                   <p className="text-gray-600 text-sm mb-4 font-sans">
                     24/7 support line for men. Professional, confidential.
                   </p>
-                  <div className="font-mono font-bold text-lg" style={{ color: '#111827' }}>
+                  <div className="font-mono font-bold text-lg" style={{ color: '#0B253A' }}>
                     1300 78 99 78
                   </div>
                 </a>
@@ -322,13 +328,13 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="card-hover group"
                 >
-                  <div className="font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#111827' }}>
+                  <div className="font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0B253A' }}>
                     Beyond Blue
                   </div>
                   <p className="text-gray-600 text-sm mb-4 font-sans">
                     Mental health and emotional wellbeing support.
                   </p>
-                  <div className="font-mono font-bold text-lg" style={{ color: '#111827' }}>
+                  <div className="font-mono font-bold text-lg" style={{ color: '#0B253A' }}>
                     1300 22 4636
                   </div>
                 </a>
