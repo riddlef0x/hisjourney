@@ -22,22 +22,29 @@ export function ArticleCard({ article, featured = false }: ArticleCardProps) {
            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
          }}>
       {/* Image Placeholder - Top element MUST be image placeholder */}
-      <div className={`flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:shadow-lg`}
+      <div className={`flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:shadow-lg article-image`}
         style={{
-          backgroundColor: '#E5E7EB',
-          width: '100%',
-          aspectRatio: '16/9',
-          borderRadius: '12px 12px 0 0'
+          backgroundColor: '#E5E7EB !important',
+          width: '100% !important',
+          height: '220px !important',
+          borderRadius: '12px 12px 0 0 !important',
+          flexShrink: 0
         }}>
       </div>
 
       {/* Content wrapper - Text below image */}
-      <div style={{ padding: '24px' }} className="flex flex-col flex-grow gap-3">
+      <div style={{ padding: '24px', gap: '12px' }} className="flex flex-col flex-grow">
         {/* Article Title */}
         <h3 className={`font-bold text-gray-900 leading-tight ${
           featured ? 'text-2xl' : 'text-lg'
         }`}
-        style={{ color: '#111827' }}>
+        style={{ 
+          color: '#111827 !important',
+          textDecoration: 'none !important',
+          borderBottom: 'none !important',
+          marginBottom: '12px !important',
+          display: 'block !important'
+        }}>
           {article.title}
         </h3>
 
@@ -54,7 +61,11 @@ export function ArticleCard({ article, featured = false }: ArticleCardProps) {
         <p className={`text-gray-600 leading-relaxed flex-grow ${
           featured ? 'text-base line-clamp-4' : 'text-sm line-clamp-2'
         }`}
-        style={{ color: '#4B5563' }}>
+        style={{ 
+          color: '#4B5563 !important',
+          lineHeight: '1.6 !important',
+          margin: '0 !important'
+        }}>
           {article.description}
         </p>
 

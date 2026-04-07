@@ -77,7 +77,10 @@
 
   .button-secondary {
     @apply button bg-white text-gray-900 border-gray-200 hover:bg-gray-50 hover:shadow-sm;
-    background-color: #FFFFFF;
+    background-color: transparent !important;
+    color: #0A1128 !important;
+    border: 1px solid #E5E7EB !important;
+    font-weight: 600 !important;
   }
 
   .button-outline {
@@ -205,12 +208,24 @@ html {
 
 /* Stat blocks - authority indicators with premium depth - EXACT SPEC */
 .stat-block {
-  background: #FFFFFF;
-  border: 1px solid #F3F4F6;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  padding: 32px;
-  @apply text-center transition-all duration-300;
+  background: #FFFFFF !important;
+  border: 1px solid #F3F4F6 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+  padding: 32px !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  flex: 0 1 auto !important;
+}
+
+/* Stats container - 3 column grid, no wrapping */
+.stats-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 0 auto !important;
 }
 
 .stat-block:hover {
@@ -232,4 +247,52 @@ html {
   font-size: 0.875rem;
   line-height: 1.5;
   letter-spacing: 0.05em;
+}
+
+/* Card title fix - Override overlapping text */
+.card h3 {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  margin-bottom: 12px !important;
+  font-size: 1.25rem !important;
+  display: block !important;
+  color: #111827 !important;
+}
+
+/* Card paragraph fix - Stable line-height */
+.card p {
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  font-size: 1rem !important;
+  color: #4B5563 !important;
+}
+
+/* Card container fix - Flex column with proper spacing */
+.card {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+}
+
+/* Essential Reading grid - Simple 3-column, no spans */
+.essential-reading-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px !important;
+  align-items: start !important;
+  width: 100% !important;
+}
+
+/* Article cards - All equal width, no spans */
+.article-card-container {
+  display: contents !important;
+}
+
+/* Image placeholder fix - Force exact dimensions */
+.article-image {
+  height: 220px !important;
+  width: 100% !important;
+  background-color: #E5E7EB !important;
+  border-radius: 12px 12px 0 0 !important;
+  flex-shrink: 0 !important;
 }

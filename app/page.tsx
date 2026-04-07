@@ -42,7 +42,7 @@ export default function Home() {
         {/* Authority Stats Section - Center Horizontally */}
         <section className="py-24 border-t border-b border-gray-200" style={{ backgroundColor: '#F9FAFB' }}>
           <div className="container-section">
-            <div className="flex justify-center gap-8 flex-wrap">
+            <div className="stats-container">
               {/* Large stat */}
               <div className="stat-block text-center">
                 <div className="stat-number">39%</div>
@@ -102,9 +102,13 @@ export default function Home() {
                     <h3 
                       className="group-hover:text-primary-600 transition-colors"
                       style={{ 
-                        fontSize: '1.25rem',
-                        fontWeight: '600',
-                        color: '#111827'
+                        fontSize: '1.25rem !important',
+                        fontWeight: '600 !important',
+                        color: '#111827 !important',
+                        textDecoration: 'none !important',
+                        borderBottom: 'none !important',
+                        marginBottom: '12px !important',
+                        display: 'block !important'
                       }}>
                       {category}
                     </h3>
@@ -112,9 +116,10 @@ export default function Home() {
                     {/* Description */}
                     <p 
                       style={{ 
-                        fontSize: '1rem',
-                        lineHeight: '1.5',
-                        color: '#4B5563'
+                        fontSize: '1rem !important',
+                        lineHeight: '1.6 !important',
+                        color: '#4B5563 !important',
+                        margin: '0 !important'
                       }}>
                       Expert resources and protocols for navigating {category.toLowerCase()} challenges during your separation.
                     </p>
@@ -192,18 +197,16 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Strict CSS Grid Container - 3 columns, first article spans 2 */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '24px',
+            {/* Simple 3-column equal-width grid - NO SPANS */}
+            <div className="essential-reading-grid" style={{
+              display: 'grid !important',
+              gridTemplateColumns: 'repeat(3, 1fr) !important',
+              gap: '24px !important',
               marginBottom: '48px'
             }}>
-              {/* Featured Article - Spans 2 columns */}
+              {/* Featured Article - Same width as others */}
               {featuredArticles[0] && (
-                <div style={{ gridColumn: 'span 2' }}>
-                  <ArticleCard key={featuredArticles[0].id} article={featuredArticles[0]} featured={true} />
-                </div>
+                <ArticleCard key={featuredArticles[0].id} article={featuredArticles[0]} featured={true} />
               )}
 
               {/* Secondary Article */}
