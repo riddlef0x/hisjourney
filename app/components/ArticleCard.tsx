@@ -13,46 +13,36 @@ export function ArticleCard({ article, featured = false }: ArticleCardProps) {
     day: 'numeric',
   });
 
-  // Generate abstract visual placeholder based on article category
-  const categoryColorMap: Record<string, { gradientStart: string; gradientEnd: string }> = {
-    'Emotional': { gradientStart: '#4b5563', gradientEnd: '#8B7D6B' },
-    'Financial': { gradientStart: '#5a7549', gradientEnd: '#73a853' },
-    'Legal': { gradientStart: '#0A1128', gradientEnd: '#4b5563' },
-    'Parenting': { gradientStart: '#a67838', gradientEnd: '#c9a885' },
-    'Mental Health': { gradientStart: '#6b7280', gradientEnd: '#8B7D6B' },
-    'Career': { gradientStart: '#5a7549', gradientEnd: '#a67838' },
-  };
-
-  const primaryCategory = article.categories?.[0] || 'Emotional';
-  const colors = categoryColorMap[primaryCategory] || categoryColorMap['Emotional'];
-
   return (
-    <div className={`group h-full flex flex-col rounded-lg overflow-hidden bg-white border border-solid transition-all duration-300 cursor-pointer`}
+    <div className={`group h-full flex flex-col rounded-lg overflow-hidden bg-white border transition-all duration-300 cursor-pointer`}
          style={{ 
-           border: '1px solid rgba(0, 0, 0, 0.04)',
-           boxShadow: '0 4px 24px rgba(0, 0, 0, 0.04)'
+           backgroundColor: '#FFFFFF',
+           border: '1px solid #F3F4F6',
+           borderRadius: '16px',
+           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
          }}>
-      {/* Image Placeholder - Soft grey background */}
-      <div className={`flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:shadow-lg ${
-        featured ? 'h-64 md:h-80' : 'h-40'
-      }`}
+      {/* Image Placeholder - Top element MUST be image placeholder */}
+      <div className={`flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:shadow-lg`}
         style={{
-          background: '#E5E7EB'
+          backgroundColor: '#E5E7EB',
+          width: '100%',
+          aspectRatio: '16/9',
+          borderRadius: '12px 12px 0 0'
         }}>
       </div>
 
-      {/* Content wrapper with padding */}
-      <div style={{ padding: '32px' }} className="flex flex-col flex-grow">
+      {/* Content wrapper - Text below image */}
+      <div style={{ padding: '24px' }} className="flex flex-col flex-grow gap-3">
         {/* Article Title */}
-        <h3 className={`font-bold text-slate-900 leading-tight mb-4 ${
+        <h3 className={`font-bold text-gray-900 leading-tight ${
           featured ? 'text-2xl' : 'text-lg'
         }`}
-        style={{ color: '#0A1128' }}>
+        style={{ color: '#111827' }}>
           {article.title}
         </h3>
 
         {/* Categories/Tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2">
           {article.categories.slice(0, featured ? 3 : 2).map((cat) => (
             <span key={cat} className="badge-primary text-xs">
               {cat}
@@ -61,15 +51,15 @@ export function ArticleCard({ article, featured = false }: ArticleCardProps) {
         </div>
 
         {/* Description */}
-        <p className={`text-slate-700 mb-4 leading-relaxed flex-grow ${
+        <p className={`text-gray-600 leading-relaxed flex-grow ${
           featured ? 'text-base line-clamp-4' : 'text-sm line-clamp-2'
         }`}
-        style={{ color: '#1D1D1F' }}>
+        style={{ color: '#4B5563' }}>
           {article.description}
         </p>
 
         {/* Meta */}
-        <div className="flex items-center justify-between text-xs text-slate-600 mb-4 pt-4 border-t border-slate-100">
+        <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-200">
           <span className="font-medium">{article.author.name}</span>
           <span>{publishDate}</span>
         </div>
@@ -78,7 +68,7 @@ export function ArticleCard({ article, featured = false }: ArticleCardProps) {
         <Link
           href={`/articles/${article.slug}`}
           className="font-semibold text-sm inline-flex items-center transition-all duration-200"
-          style={{ color: '#0A1128' }}
+          style={{ color: '#111827' }}
         >
           <span>Read Article</span>
           <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 ml-1">→</span>

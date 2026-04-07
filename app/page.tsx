@@ -17,14 +17,14 @@ export default function Home() {
 
       <main>
         {/* Hero Section - Pure clean background */}
-        <section className="relative py-24 md:py-32 overflow-hidden mb-20" style={{ background: 'radial-gradient(circle at 50% 0%, #E8E8ED 0%, #FAFAFA 50%)' }}>
+        <section className="relative py-24 overflow-hidden" style={{ background: 'radial-gradient(circle at 50% 0%, #E8E8ED 0%, #F9FAFB 50%)' }}>
           {/* Content - Positioned above gradient */}
           <div className="container-section relative z-10">
             <div className="max-w-3xl">
-              <h1 className="mb-6 text-slate-900 leading-tight">
+              <h1 className="mb-6 text-gray-900 leading-tight">
                 Protocols for Divorce
               </h1>
-              <p className="text-lg md:text-xl text-slate-700 mb-8 leading-relaxed max-w-2xl font-sans">
+              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl font-sans">
                 Navigate separation with discipline and structure. Expert guidance on emotional, financial, legal, and parenting challenges specific to men going through divorce in Australia. No bullshit. No softness. Just protocols.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -39,36 +39,36 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Authority Stats Section - Asymmetrical Bento Box */}
-        <section className="py-32 border-t border-b border-slate-100 mb-20" style={{ backgroundColor: '#FAFAFA' }}>
+        {/* Authority Stats Section - Center Horizontally */}
+        <section className="py-24 border-t border-b border-gray-200" style={{ backgroundColor: '#F9FAFB' }}>
           <div className="container-section">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
-              {/* Large stat spanning 2 columns */}
-              <div className="stat-block md:col-span-2">
-                <div className="stat-number text-5xl md:text-6xl">39%</div>
-                <div className="stat-label text-base">Men face housing insecurity post-divorce</div>
+            <div className="flex justify-center gap-8 flex-wrap">
+              {/* Large stat */}
+              <div className="stat-block text-center">
+                <div className="stat-number">39%</div>
+                <div className="stat-label">Men face housing insecurity post-divorce</div>
               </div>
               
               {/* Regular stats */}
-              <div className="stat-block">
+              <div className="stat-block text-center">
                 <div className="stat-number">2.5x</div>
-                <div className="stat-label text-sm">Higher divorce rate among first marriages</div>
+                <div className="stat-label">Higher divorce rate among first marriages</div>
               </div>
               
-              <div className="stat-block">
+              <div className="stat-block text-center">
                 <div className="stat-number">40%</div>
-                <div className="stat-label text-sm">Men report inadequate mental health access</div>
+                <div className="stat-label">Men report inadequate mental health access</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Fork in the Road - Pathways */}
-        <section className="py-32 md:py-40 mb-20" style={{ backgroundColor: '#FAFAFA' }}>
+        <section className="py-24" style={{ backgroundColor: '#F9FAFB' }}>
           <div className="container-section">
             <div className="mb-12">
-              <h2 className="text-slate-900 mb-2">Your Fork in the Road</h2>
-              <p className="text-slate-700 text-lg max-w-2xl font-sans">
+              <h2 className="text-gray-900 mb-2">Your Fork in the Road</h2>
+              <p className="text-gray-600 text-lg max-w-2xl font-sans">
                 Divorce follows patterns. Understand your pathway, learn from men who've navigated it, build your strategy.
               </p>
             </div>
@@ -79,27 +79,48 @@ export default function Home() {
                   <Link
                     key={category}
                     href={`/categories/${category.toLowerCase()}`}
-                    className="card-hover group"
+                    className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #F3F4F6',
+                      borderRadius: '16px',
+                      padding: '32px',
+                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '16px'
+                    }}
                   >
                     {/* Badge */}
-                    <div className="mb-4">
+                    <div>
                       <div className="inline-block px-3 py-1.5 rounded-lg bg-sage-50 border border-sage-200 text-sage-700 text-xs font-semibold uppercase tracking-tight">
                         Pathway
                       </div>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary-600 transition-colors" style={{ color: '#0A1128', fontSize: '1.25rem', fontWeight: 'bold' }}>
+                    <h3 
+                      className="group-hover:text-primary-600 transition-colors"
+                      style={{ 
+                        fontSize: '1.25rem',
+                        fontWeight: '600',
+                        color: '#111827'
+                      }}>
                       {category}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-slate-700 text-sm leading-relaxed mb-6">
+                    <p 
+                      style={{ 
+                        fontSize: '1rem',
+                        lineHeight: '1.5',
+                        color: '#4B5563'
+                      }}>
                       Expert resources and protocols for navigating {category.toLowerCase()} challenges during your separation.
                     </p>
 
                     {/* CTA - Arrow animates on hover */}
-                    <div className="text-primary-600 font-semibold text-sm inline-flex items-center transition-all duration-200" style={{ color: '#0A1128' }}>
+                    <div className="font-semibold text-sm inline-flex items-center transition-all duration-200" style={{ color: '#111827' }}>
                       <span>Explore</span>
                       <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 ml-1">→</span>
                     </div>
@@ -111,11 +132,11 @@ export default function Home() {
         </section>
 
         {/* Featured Marketplace Services */}
-        <section className="py-16 md:py-20 mb-20" style={{ backgroundColor: '#FFFFFF' }}>
+        <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container-section">
             <div className="mb-12">
-              <h2 className="text-slate-900 mb-2">Vetted Professionals & Services</h2>
-              <p className="text-slate-700 text-lg max-w-2xl font-sans">
+              <h2 className="text-gray-900 mb-2">Vetted Professionals & Services</h2>
+              <p className="text-gray-600 text-lg max-w-2xl font-sans">
                 Find trusted divorce specialists, lawyers, therapists, financial advisors, and support groups across Australia. All vetted for quality and relevance to men.
               </p>
             </div>
@@ -129,23 +150,23 @@ export default function Home() {
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <p className="text-xs text-slate-500 uppercase tracking-tight font-semibold mb-1">
+                      <p className="text-xs text-gray-500 uppercase tracking-tight font-semibold mb-1">
                         Featured Service
                       </p>
-                      <h3 className="text-lg font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors" style={{ color: '#0A1128' }}>
+                      <h3 className="text-lg font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors" style={{ color: '#111827' }}>
                         {vendor.name}
                       </h3>
                     </div>
-                    <div className="text-2xl font-bold rounded-lg p-2" style={{ color: '#0A1128' }}>
+                    <div className="text-2xl font-bold rounded-lg p-2" style={{ color: '#111827' }}>
                       {vendor.rating}
                     </div>
                   </div>
-                  <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                     {vendor.description}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                    <span className="text-xs text-slate-500">{vendor.location}</span>
-                    <span className="font-semibold text-sm transition-colors duration-200" style={{ color: '#0A1128' }}>
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <span className="text-xs text-gray-500">{vendor.location}</span>
+                    <span className="font-semibold text-sm transition-colors duration-200" style={{ color: '#111827' }}>
                       View →
                     </span>
                   </div>
@@ -161,29 +182,39 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Articles - Bento Box Grid Layout */}
-        <section className="py-32 md:py-40 mb-20" style={{ backgroundColor: '#FAFAFA' }}>
+        {/* Featured Articles - Essential Reading Grid Layout */}
+        <section className="py-24" style={{ backgroundColor: '#F9FAFB' }}>
           <div className="container-section">
             <div className="mb-12">
-              <h2 className="text-slate-900 mb-2">Essential Reading</h2>
-              <p className="text-slate-700 text-lg max-w-2xl font-sans">
+              <h2 className="text-gray-900 mb-2">Essential Reading</h2>
+              <p className="text-gray-600 text-lg max-w-2xl font-sans">
                 Curated articles from men who've been there, covering the critical phases of your journey.
               </p>
             </div>
 
-            {/* Bento Box Grid - First article featured (2 cols), next two smaller */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-              {/* Featured Article - Large, spans 2 columns */}
+            {/* Strict CSS Grid Container - 3 columns, first article spans 2 */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '24px',
+              marginBottom: '48px'
+            }}>
+              {/* Featured Article - Spans 2 columns */}
               {featuredArticles[0] && (
-                <div className="md:col-span-2 md:row-span-2">
+                <div style={{ gridColumn: 'span 2' }}>
                   <ArticleCard key={featuredArticles[0].id} article={featuredArticles[0]} featured={true} />
                 </div>
               )}
 
-              {/* Secondary Articles - Smaller grid items */}
-              {featuredArticles.slice(1, 3).map((article) => (
-                <ArticleCard key={article.id} article={article} featured={false} />
-              ))}
+              {/* Secondary Article */}
+              {featuredArticles[1] && (
+                <ArticleCard key={featuredArticles[1].id} article={featuredArticles[1]} featured={false} />
+              )}
+
+              {/* Third Article */}
+              {featuredArticles[2] && (
+                <ArticleCard key={featuredArticles[2].id} article={featuredArticles[2]} featured={false} />
+              )}
             </div>
 
             <div className="text-center">
@@ -195,15 +226,15 @@ export default function Home() {
         </section>
 
         {/* The Masculine Operator - Why HisJourney */}
-        <section className="py-32 md:py-40 mb-20" style={{ backgroundColor: '#FAFAFA' }}>
+        <section className="py-24" style={{ backgroundColor: '#F9FAFB' }}>
           <div className="container-section">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-slate-900 mb-6">Why HisJourney</h2>
-                <p className="text-slate-700 mb-5 leading-relaxed font-sans">
+                <h2 className="text-gray-900 mb-6">Why HisJourney</h2>
+                <p className="text-gray-600 mb-5 leading-relaxed font-sans">
                   Divorce isn't weakness. It's a fork in the road that requires discipline, strategy, and structured thinking. Most men lack the frameworks to navigate the emotional, financial, legal, and parenting complexities that follow.
                 </p>
-                <p className="text-slate-700 mb-8 leading-relaxed font-sans">
+                <p className="text-gray-600 mb-8 leading-relaxed font-sans">
                   HisJourney gives you the protocols. Structured. Grounded. Built by men who've walked this path, written with the authority of divorce specialists. No platitudes. No fluffy guidance. Just what works.
                 </p>
                 
@@ -217,16 +248,16 @@ export default function Home() {
                     'Side-by-side growth mindset'
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-lg flex items-center justify-center mt-0.5 transition-colors" style={{ backgroundColor: '#0A1128' }}>
+                      <div className="flex-shrink-0 w-5 h-5 rounded-lg flex items-center justify-center mt-0.5 transition-colors" style={{ backgroundColor: '#111827' }}>
                         <span className="text-white text-xs font-bold">✓</span>
                       </div>
-                      <span className="text-slate-700 font-sans">{item}</span>
+                      <span className="text-gray-600 font-sans">{item}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="border-t border-slate-200 pt-8">
-                  <p className="text-sm text-slate-600 mb-4 font-medium uppercase tracking-tight">
+                <div className="border-t border-gray-200 pt-8">
+                  <p className="text-sm text-gray-600 mb-4 font-medium uppercase tracking-tight">
                     Ready to take control?
                   </p>
                   <Link href="/contact" className="button-primary">
@@ -243,10 +274,10 @@ export default function Home() {
                    }}>
                 <div className="text-center">
                   <div className="text-6xl mb-4 font-black" style={{ color: '#5a7549' }}>⚓</div>
-                  <p className="text-slate-700 font-medium font-serif">
+                  <p className="text-gray-700 font-medium font-serif">
                     Grounded. Structured. Forward.
                   </p>
-                  <p className="text-xs text-slate-500 mt-2">
+                  <p className="text-xs text-gray-500 mt-2">
                     Photography & visual journey coming
                   </p>
                 </div>
@@ -256,11 +287,11 @@ export default function Home() {
         </section>
 
         {/* Crisis Support - Direct & Honest */}
-        <section className="py-32 border-y border-slate-100" style={{ backgroundColor: '#FAFAFA' }}>
+        <section className="py-24 border-y border-gray-200" style={{ backgroundColor: '#F9FAFB' }}>
           <div className="container-section">
             <div className="max-w-3xl">
-              <h2 className="text-slate-900 mb-4">In Crisis? You Have Options.</h2>
-              <p className="text-slate-700 text-lg mb-8 leading-relaxed font-sans">
+              <h2 className="text-gray-900 mb-4">In Crisis? You Have Options.</h2>
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed font-sans">
                 Mental health support isn't weakness. It's part of the protocol. These services exist for men in your situation.
               </p>
               
@@ -271,13 +302,13 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="card-hover group"
                 >
-                  <div className="font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0A1128' }}>
+                  <div className="font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#111827' }}>
                     MensLine Australia
                   </div>
-                  <p className="text-slate-700 text-sm mb-4 font-sans">
+                  <p className="text-gray-600 text-sm mb-4 font-sans">
                     24/7 support line for men. Professional, confidential.
                   </p>
-                  <div className="font-mono font-bold text-lg" style={{ color: '#0A1128' }}>
+                  <div className="font-mono font-bold text-lg" style={{ color: '#111827' }}>
                     1300 78 99 78
                   </div>
                 </a>
@@ -288,13 +319,13 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="card-hover group"
                 >
-                  <div className="font-serif font-bold text-slate-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0A1128' }}>
+                  <div className="font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#111827' }}>
                     Beyond Blue
                   </div>
-                  <p className="text-slate-700 text-sm mb-4 font-sans">
+                  <p className="text-gray-600 text-sm mb-4 font-sans">
                     Mental health and emotional wellbeing support.
                   </p>
-                  <div className="font-mono font-bold text-lg" style={{ color: '#0A1128' }}>
+                  <div className="font-mono font-bold text-lg" style={{ color: '#111827' }}>
                     1300 22 4636
                   </div>
                 </a>
