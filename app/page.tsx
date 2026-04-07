@@ -79,20 +79,7 @@ export default function Home() {
                   <Link
                     key={category}
                     href={`/categories/${category.toLowerCase()}`}
-                    className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                    style={{
-                      background: '#FFFFFF',
-                      border: '1px solid #F3F4F6',
-                      borderRadius: '16px',
-                      padding: '32px',
-                      boxShadow: '0 4px 20px rgba(11, 37, 58, 0.03)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '16px',
-                      transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 12px 32px rgba(11, 37, 58, 0.08)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 20px rgba(11, 37, 58, 0.03)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                    className="category-card group"
                   >
                     {/* Badge */}
                     <div>

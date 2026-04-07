@@ -1,0 +1,23 @@
+
+> hisjourney-rebuild@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+uncaughtException Error: spawn /usr/local/bin/node EAGAIN
+    at ChildProcess._handle.onexit (node:internal/child_process:285:19)
+    at onErrorNT (node:internal/child_process:483:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  errno: -11,
+  code: 'EAGAIN',
+  syscall: 'spawn /usr/local/bin/node',
+  path: '/usr/local/bin/node',
+  spawnargs: [
+    '/data/workspace/node_modules/next/dist/compiled/jest-worker/processChild.js'
+  ]
+}

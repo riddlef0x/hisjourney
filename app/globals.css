@@ -317,3 +317,32 @@ html {
   flex-shrink: 0 !important;
   transition: transform 0.3s ease;
 }
+
+/* Category pathway cards - CSS-only hover effects */
+.category-card {
+  background: #FFFFFF;
+  border: 1px solid #F3F4F6;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(11, 37, 58, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(11, 37, 58, 0.08);
+}
+
+/* Article card hover effects - CSS only */
+.card-container:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 32px rgba(11, 37, 58, 0.08) !important;
+}
+
+.card-container:hover .arrow-animate {
+  transform: translateX(4px);
+}

@@ -14,12 +14,14 @@ export function ArticleCard({ article, featured = false }: ArticleCardProps) {
   });
 
   return (
-    <div className={`group h-full flex flex-col rounded-lg overflow-hidden bg-white border transition-all duration-300 cursor-pointer`}
+    <Link href={`/articles/${article.slug}`} className="block h-full">
+      <div className="card-container h-full flex flex-col rounded-lg overflow-hidden bg-white border"
          style={{ 
            backgroundColor: '#FFFFFF',
            border: '1px solid #F3F4F6',
            borderRadius: '16px',
-           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+           boxShadow: '0 4px 20px rgba(11, 37, 58, 0.03)',
+           transition: 'transform 0.3s ease, box-shadow 0.3s ease'
          }}>
       {/* Image Placeholder - Top element MUST be image placeholder - NOW WITH REAL IMAGES */}
       <div className={`flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:shadow-lg article-image`}
@@ -78,16 +80,14 @@ export function ArticleCard({ article, featured = false }: ArticleCardProps) {
           <span>{publishDate}</span>
         </div>
 
-        {/* CTA - Text link with animated arrow */}
-        <Link
-          href={`/articles/${article.slug}`}
-          className="font-semibold text-sm inline-flex items-center transition-all duration-200"
-          style={{ color: '#111827' }}
-        >
+        {/* CTA - Text with animated arrow */}
+        <div className="font-semibold text-sm inline-flex items-center transition-all duration-200"
+             style={{ color: '#111827' }}>
           <span>Read Article</span>
-          <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 ml-1">→</span>
-        </Link>
+          <span className="inline-block transition-transform duration-200 ml-1 arrow-animate">→</span>
+        </div>
       </div>
     </div>
+    </Link>
   );
 }
