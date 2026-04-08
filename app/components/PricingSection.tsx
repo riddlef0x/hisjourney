@@ -5,19 +5,33 @@ import { useState } from 'react';
 
 export function PricingSection() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-      {/* Starter Plan */}
+    <div className="pricing-container" style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'stretch',
+      gap: '32px',
+      flexWrap: 'wrap',
+      maxWidth: '1000px',
+      margin: '0 auto'
+    }}>
+      {/* Free Card */}
       <PricingCard
         title="Free Trial"
         subtitle="Start your journey risk-free"
         price="$0"
-        features={['Essential reading access', 'Mood tracker basics', 'Community forum access']}
+        features={[
+          'Essential reading access',
+          'Mood tracker basics',
+          'Community forum access',
+          'Basic resource library',
+          'Email support'
+        ]}
         isPrimary={false}
         ctaText="Get Started"
         ctaHref="/contact"
       />
 
-      {/* Professional Plan - Highlighted */}
+      {/* Professional Card - Featured */}
       <PricingCard
         title="Professional"
         subtitle="Complete protocols & support"
@@ -28,29 +42,14 @@ export function PricingSection() {
           'Full smart journaling',
           'Expert marketplace access',
           'Legal guidance protocols',
-          'Priority support'
+          'Financial recovery plans',
+          'Co-parenting tools',
+          'Priority email support',
+          'Monthly specialist check-ins'
         ]}
         isPrimary={true}
         ctaText="Start Professional"
         highlighted={true}
-      />
-
-      {/* Enterprise Plan */}
-      <PricingCard
-        title="Family Plan"
-        subtitle="For families navigating together"
-        price="$49"
-        priceSuffix="/month"
-        features={[
-          'Everything in Professional',
-          'Co-parenting tools',
-          'Multiple user accounts',
-          'Direct specialist access',
-          '1-on-1 strategy sessions'
-        ]}
-        isPrimary={false}
-        ctaText="Contact Sales"
-        ctaHref="/contact"
       />
     </div>
   );
@@ -85,63 +84,72 @@ function PricingCard({
     return (
       <div
         style={{
-          backgroundColor: '#0B253A',
-          borderRadius: '16px',
-          padding: '40px',
+          backgroundColor: '#2C4C3B',
+          borderRadius: '20px',
+          padding: '48px 40px',
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
-          border: '2px solid #0B253A',
-          transform: isHovered ? 'scale(1.08) translateY(-4px)' : 'scale(1.05)',
+          border: '2px solid #2C4C3B',
+          transform: isHovered ? 'scale(1.05) translateY(-8px)' : 'scale(1.02)',
           transition: 'transform 0.3s ease, box-shadow 0.3s ease',
           boxShadow: isHovered
-            ? '0 20px 40px rgba(11, 37, 58, 0.2)'
-            : '0 12px 32px rgba(11, 37, 58, 0.15)'
+            ? '0 24px 48px rgba(44, 76, 59, 0.35)'
+            : '0 16px 40px rgba(44, 76, 59, 0.25)',
+          width: '100%',
+          maxWidth: '420px',
+          minHeight: '680px'
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div style={{
           position: 'absolute',
-          top: '-12px',
-          left: '24px',
-          backgroundColor: '#0B253A',
-          color: '#FFFFFF',
-          padding: '4px 12px',
-          borderRadius: '4px',
+          top: '-14px',
+          left: '28px',
+          backgroundColor: '#3D5C4F',
+          color: '#F5F5F0',
+          padding: '6px 16px',
+          borderRadius: '6px',
           fontSize: '0.75rem',
           fontWeight: 700,
-          textTransform: 'uppercase'
+          textTransform: 'uppercase',
+          letterSpacing: '0.05em'
         }}>
           Most Popular
         </div>
+
         <h3 style={{
-          color: '#FFFFFF',
+          color: '#F5F5F0',
           fontFamily: "'Playfair Display', system-ui, serif",
-          fontSize: '1.5rem',
-          marginTop: '12px'
+          fontSize: '2rem',
+          fontWeight: 800,
+          marginTop: '12px',
+          marginBottom: '8px'
         }}>
           {title}
         </h3>
         <p style={{
-          color: 'rgba(255, 255, 255, 0.7)',
-          marginTop: '8px',
-          fontSize: '0.9rem'
+          color: 'rgba(245, 245, 240, 0.75)',
+          marginTop: '0px',
+          marginBottom: '28px',
+          fontSize: '0.95rem'
         }}>
           {subtitle}
         </p>
-        <div style={{ marginTop: '24px', marginBottom: '32px' }}>
+
+        <div style={{ marginBottom: '32px' }}>
           <span style={{
-            fontSize: '2.5rem',
+            fontSize: '3rem',
             fontWeight: 900,
-            color: '#FFFFFF',
+            color: '#F5F5F0',
             fontFamily: "'Playfair Display', system-ui, serif"
           }}>
             {price}
           </span>
           {priceSuffix && (
             <span style={{
-              color: 'rgba(255, 255, 255, 0.7)',
+              color: 'rgba(245, 245, 240, 0.65)',
               marginLeft: '8px',
               fontSize: '0.95rem'
             }}>
@@ -149,39 +157,57 @@ function PricingCard({
             </span>
           )}
         </div>
-        <ul style={{ marginBottom: '32px', flex: 1 }}>
+
+        <ul style={{ 
+          marginBottom: '40px', 
+          flex: 1,
+          listStyle: 'none',
+          padding: 0,
+          margin: 0
+        }}>
           {features.map((feature, idx) => (
             <li key={idx} style={{
-              color: 'rgba(255, 255, 255, 0.9)',
-              marginBottom: '12px',
+              color: 'rgba(245, 245, 240, 0.9)',
+              marginBottom: '14px',
               display: 'flex',
               gap: '12px',
-              fontSize: '0.95rem'
+              fontSize: '0.95rem',
+              lineHeight: 1.4,
+              alignItems: 'flex-start'
             }}>
-              <span style={{ color: '#FFFFFF' }}>✓</span>
+              <span style={{ 
+                color: '#3D5C4F',
+                fontWeight: 700,
+                marginTop: '2px',
+                flexShrink: 0
+              }}>✓</span>
               <span>{feature}</span>
             </li>
           ))}
         </ul>
+
         <button
           style={{
-            backgroundColor: '#FFFFFF',
-            color: '#0B253A',
+            backgroundColor: '#F5F5F0',
+            color: '#2C4C3B',
             border: 'none',
-            borderRadius: '9999px',
-            padding: '12px 32px',
-            fontWeight: 600,
+            borderRadius: '12px',
+            padding: '14px 32px',
+            fontWeight: 700,
             cursor: 'pointer',
-            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-            transform: 'scale(1)',
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease',
+            fontSize: '0.95rem',
+            letterSpacing: '0.05em',
             boxShadow: 'none'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.05)';
-            e.currentTarget.style.boxShadow = '0 4px 12px rgba(255, 255, 255, 0.2)';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.backgroundColor = '#FFFFFF';
+            e.currentTarget.style.boxShadow = '0 8px 20px rgba(245, 245, 240, 0.25)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.backgroundColor = '#F5F5F0';
             e.currentTarget.style.boxShadow = 'none';
           }}
         >
@@ -194,17 +220,21 @@ function PricingCard({
   return (
     <div
       style={{
-        backgroundColor: '#FFFFFF',
-        border: '1px solid #F3F4F6',
-        borderRadius: '16px',
-        padding: '40px',
+        backgroundColor: '#F5F5F0',
+        border: '2px solid #2C4C3B',
+        borderRadius: '20px',
+        padding: '48px 40px',
         display: 'flex',
         flexDirection: 'column',
-        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-        transform: isHovered ? 'translateY(-4px)' : 'translateY(0)',
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
+        transform: isHovered ? 'translateY(-6px)' : 'translateY(0)',
         boxShadow: isHovered
-          ? '0 12px 32px rgba(11, 37, 58, 0.08)'
-          : '0 4px 20px rgba(11, 37, 58, 0.03)'
+          ? '0 16px 40px rgba(44, 76, 59, 0.15)'
+          : '0 8px 24px rgba(44, 76, 59, 0.08)',
+        width: '100%',
+        maxWidth: '420px',
+        minHeight: '680px',
+        borderColor: isHovered ? '#3D5C4F' : '#2C4C3B'
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -212,22 +242,25 @@ function PricingCard({
       <h3 style={{
         color: '#0B253A',
         fontFamily: "'Playfair Display', system-ui, serif",
-        fontSize: '1.5rem'
+        fontSize: '2rem',
+        fontWeight: 800,
+        marginBottom: '8px'
       }}>
         {title}
       </h3>
       <p style={{
         color: '#4A657A',
-        marginTop: '8px',
-        fontSize: '0.9rem'
+        marginTop: '0px',
+        marginBottom: '28px',
+        fontSize: '0.95rem'
       }}>
         {subtitle}
       </p>
-      <div style={{ marginTop: '24px', marginBottom: '32px' }}>
+      <div style={{ marginBottom: '32px' }}>
         <span style={{
-          fontSize: '2.5rem',
+          fontSize: '3rem',
           fontWeight: 900,
-          color: '#0B253A',
+          color: '#2C4C3B',
           fontFamily: "'Playfair Display', system-ui, serif"
         }}>
           {price}
@@ -242,24 +275,59 @@ function PricingCard({
           </span>
         )}
       </div>
-      <ul style={{ marginBottom: '32px', flex: 1 }}>
+      <ul style={{ 
+        marginBottom: '40px', 
+        flex: 1,
+        listStyle: 'none',
+        padding: 0,
+        margin: 0
+      }}>
         {features.map((feature, idx) => (
           <li key={idx} style={{
             color: '#4B5563',
-            marginBottom: '12px',
+            marginBottom: '14px',
             display: 'flex',
             gap: '12px',
-            fontSize: '0.95rem'
+            fontSize: '0.95rem',
+            lineHeight: 1.4,
+            alignItems: 'flex-start'
           }}>
-            <span style={{ color: '#0B253A' }}>✓</span>
+            <span style={{ 
+              color: '#2C4C3B',
+              fontWeight: 700,
+              marginTop: '2px',
+              flexShrink: 0
+            }}>✓</span>
             <span>{feature}</span>
           </li>
         ))}
       </ul>
-      <Link href={ctaHref || '/contact'} style={{ textAlign: 'center' }}>
-        <div className="button-outline">
+      <Link href={ctaHref || '/contact'} style={{ textDecoration: 'none' }}>
+        <button style={{
+          width: '100%',
+          backgroundColor: 'transparent',
+          color: '#2C4C3B',
+          border: '2px solid #2C4C3B',
+          borderRadius: '12px',
+          padding: '14px 32px',
+          fontWeight: 700,
+          cursor: 'pointer',
+          transition: 'all 0.2s ease',
+          fontSize: '0.95rem',
+          letterSpacing: '0.05em'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = '#FFFFFF';
+          e.currentTarget.style.transform = 'translateY(-2px)';
+          e.currentTarget.style.boxShadow = '0 8px 20px rgba(44, 76, 59, 0.1)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = 'transparent';
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = 'none';
+        }}>
           {ctaText}
-        </div>
+        </button>
       </Link>
     </div>
   );

@@ -7,6 +7,7 @@ import { BentoFeatures } from './components/BentoFeatures';
 import { PricingSection } from './components/PricingSection';
 import { CrisisSupport } from './components/CrisisSupport';
 import { Testimonials } from './components/Testimonials';
+import { HowItWorks } from './components/HowItWorks';
 import { getPublishedArticles, getAllCategories } from '@/lib/articles';
 import { getFeaturedVendors } from '@/lib/vendors';
 
@@ -22,24 +23,24 @@ export default function Home() {
 
       <main>
         {/* Hero Section - WebGL mesh gradient with mouse interaction */}
-        <section className="hero-section relative py-32 overflow-hidden" style={{ background: '#FAFAF7', minHeight: '600px' }}>
+        <section className="hero-section relative overflow-hidden" style={{ background: '#F5F5F0', minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {/* WebGL Canvas Background - Breathing mesh gradient */}
           <HeroWebGL />
           
           {/* Content - Positioned above gradient */}
           <div className="container-section relative z-10">
-            <div className="max-w-3xl">
-              <h1 className="mb-6 text-gray-900 leading-tight">
+            <div className="max-w-4xl">
+              <h1 className="mb-8 text-gray-900 leading-tight" style={{ fontSize: '5rem', lineHeight: 1.1, color: '#2C4C3B', fontWeight: 900, fontFamily: "'Playfair Display', system-ui, serif" }}>
                 Protocols for Divorce
               </h1>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl font-sans">
+              <p className="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed max-w-3xl font-sans">
                 Navigate separation with discipline and structure. Expert guidance on emotional, financial, legal, and parenting challenges specific to men going through divorce in Australia. No bullshit. No softness. Just protocols.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/articles" className="button-primary">
+              <div className="flex flex-col sm:flex-row gap-6">
+                <Link href="/articles" className="button-primary" style={{ padding: '16px 40px', fontSize: '1rem', fontWeight: 700 }}>
                   Start Your Journey
                 </Link>
-                <Link href="/resources" className="button-secondary">
+                <Link href="/resources" className="button-secondary" style={{ padding: '16px 40px', fontSize: '1rem', fontWeight: 700 }}>
                   Find Resources
                 </Link>
               </div>
@@ -48,7 +49,7 @@ export default function Home() {
         </section>
 
         {/* Authority Stats Section - Center Horizontally */}
-        <section className="py-24 border-t border-b border-gray-200" style={{ backgroundColor: '#FAFAF7' }}>
+        <section className="py-24 border-t border-b border-gray-200" style={{ backgroundColor: '#F5F5F0' }}>
           <div className="container-section">
             <div className="stats-container">
               {/* Large stat */}
@@ -72,7 +73,7 @@ export default function Home() {
         </section>
 
         {/* Fork in the Road - Pathways */}
-        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
+        <section className="py-24" style={{ backgroundColor: '#F5F5F0' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-gray-900 mb-2">Your Fork in the Road</h2>
@@ -186,7 +187,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How It Works - Staggered Asymmetrical Vertical Timeline */}
+        {/* How It Works - Sticky Scroll Narrative Layout */}
         <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container-section">
             <div className="mb-16">
@@ -196,105 +197,13 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Staggered asymmetrical timeline */}
-            <div className="timeline-container relative" style={{ maxWidth: '900px', margin: '0 auto' }}>
-              {/* Vertical line connector */}
-              <div style={{
-                position: 'absolute',
-                left: '50%',
-                top: 0,
-                bottom: 0,
-                width: '2px',
-                background: 'linear-gradient(180deg, #0B253A 0%, rgba(11, 37, 58, 0.1) 100%)',
-                transform: 'translateX(-50%)',
-                zIndex: 0
-              }}></div>
-
-              {/* Timeline Item 1 - Left (text) */}
-              <div className="timeline-item mb-16 relative" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '32px', alignItems: 'center' }}>
-                <div className="text-right">
-                  <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif", lineHeight: 1 }}>01</div>
-                  <h3 style={{ color: '#0B253A', marginTop: '12px', fontFamily: "'Playfair Display', system-ui, serif" }}>Understand Your Position</h3>
-                  <p style={{ color: '#4B5563', marginTop: '12px', fontSize: '0.95rem' }}>Assess your financial, emotional, and legal standing. Build your baseline understanding.</p>
-                </div>
-                <div style={{
-                  width: '16px',
-                  height: '16px',
-                  backgroundColor: '#0B253A',
-                  borderRadius: '50%',
-                  border: '4px solid #FFFFFF',
-                  boxShadow: '0 0 0 4px #0B253A',
-                  zIndex: 2,
-                  position: 'relative'
-                }}></div>
-                <div></div>
-              </div>
-
-              {/* Timeline Item 2 - Right (visual) */}
-              <div className="timeline-item mb-16 relative" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '32px', alignItems: 'center' }}>
-                <div></div>
-                <div style={{
-                  width: '16px',
-                  height: '16px',
-                  backgroundColor: '#0B253A',
-                  borderRadius: '50%',
-                  border: '4px solid #FFFFFF',
-                  boxShadow: '0 0 0 4px #0B253A',
-                  zIndex: 2,
-                  position: 'relative'
-                }}></div>
-                <div className="rounded-lg p-6" style={{ backgroundColor: '#F5F8FC', border: '1px solid #E0E8F2' }}>
-                  <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif", lineHeight: 1 }}>02</div>
-                  <h3 style={{ color: '#0B253A', marginTop: '12px', fontFamily: "'Playfair Display', system-ui, serif" }}>Develop Your Strategy</h3>
-                  <p style={{ color: '#4B5563', marginTop: '12px', fontSize: '0.95rem' }}>Work with specialists to build financial, legal, and emotional protocols tailored to your situation.</p>
-                </div>
-              </div>
-
-              {/* Timeline Item 3 - Left */}
-              <div className="timeline-item mb-16 relative" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '32px', alignItems: 'center' }}>
-                <div className="text-right rounded-lg p-6" style={{ backgroundColor: '#F5F8FC', border: '1px solid #E0E8F2' }}>
-                  <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif", lineHeight: 1 }}>03</div>
-                  <h3 style={{ color: '#0B253A', marginTop: '12px', fontFamily: "'Playfair Display', system-ui, serif" }}>Navigate Challenges</h3>
-                  <p style={{ color: '#4B5563', marginTop: '12px', fontSize: '0.95rem' }}>Execute your strategy with expert support for legal, financial, and emotional challenges.</p>
-                </div>
-                <div style={{
-                  width: '16px',
-                  height: '16px',
-                  backgroundColor: '#0B253A',
-                  borderRadius: '50%',
-                  border: '4px solid #FFFFFF',
-                  boxShadow: '0 0 0 4px #0B253A',
-                  zIndex: 2,
-                  position: 'relative'
-                }}></div>
-                <div></div>
-              </div>
-
-              {/* Timeline Item 4 - Right */}
-              <div className="timeline-item relative" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '32px', alignItems: 'center' }}>
-                <div></div>
-                <div style={{
-                  width: '16px',
-                  height: '16px',
-                  backgroundColor: '#0B253A',
-                  borderRadius: '50%',
-                  border: '4px solid #FFFFFF',
-                  boxShadow: '0 0 0 4px #0B253A',
-                  zIndex: 2,
-                  position: 'relative'
-                }}></div>
-                <div>
-                  <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif", lineHeight: 1 }}>04</div>
-                  <h3 style={{ color: '#0B253A', marginTop: '12px', fontFamily: "'Playfair Display', system-ui, serif" }}>Rebuild & Thrive</h3>
-                  <p style={{ color: '#4B5563', marginTop: '12px', fontSize: '0.95rem' }}>Move forward with renewed purpose. Financial recovery, emotional healing, and growth mindset.</p>
-                </div>
-              </div>
-            </div>
+            {/* Sticky scroll section */}
+            <HowItWorks />
           </div>
         </section>
 
         {/* Loved by Men Like You - Testimonials */}
-        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
+        <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container-section">
             <div className="mb-12">
               <h2 className="text-gray-900 mb-2">Loved by Men Like You</h2>
@@ -323,7 +232,7 @@ export default function Home() {
         </section>
 
         {/* Simple, Transparent Pricing */}
-        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
+        <section className="py-24" style={{ backgroundColor: '#F5F5F0' }}>
           <div className="container-section">
             <div className="mb-16">
               <h2 className="text-gray-900 mb-2">Simple, Transparent Pricing</h2>
@@ -337,7 +246,7 @@ export default function Home() {
         </section>
 
         {/* The Masculine Operator - Why HisJourney */}
-        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
+        <section className="py-24" style={{ backgroundColor: '#F5F5F0' }}>
           <div className="container-section">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>

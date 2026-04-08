@@ -9,7 +9,7 @@ export function HeroWebGL() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext('webgl2', { alpha: true });
+    const gl = canvas.getContext('webgl2', { alpha: true, antialias: true });
     if (!gl) return;
 
     // Set canvas size
@@ -21,7 +21,7 @@ export function HeroWebGL() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Simple gradient shader
+    // Enhanced gradient shader with mesh effect
     const vertexShader = `#version 300 es
       precision highp float;
       in vec2 position;
@@ -40,31 +40,44 @@ export function HeroWebGL() {
       void main() {
         vec2 uv = gl_FragCoord.xy / resolution.xy;
         
-        // Breathing animation
-        float breathe = sin(time * 0.5) * 0.1 + 0.9;
+        // Cream base color: #F5F5F0
+        vec3 colorCream = vec3(0.961, 0.961, 0.941);
         
-        // Create mesh gradient effect
-        vec3 color1 = vec3(0.88, 0.92, 0.95); // Light blue
-        vec3 color2 = vec3(0.98, 0.98, 0.97); // Cream
-        vec3 color3 = vec3(0.92, 0.95, 0.98); // Light blue-grey
+        // Soft sage green: #3D5C4F
+        vec3 colorSage = vec3(0.239, 0.361, 0.310);
         
-        // Smooth variation based on position
-        float pattern = sin(uv.x * 3.0 + time * 0.2) * 0.5 + 0.5;
-        pattern += sin(uv.y * 3.0 + time * 0.3) * 0.3;
+        // Gentle breathing animation
+        float breathe = sin(time * 0.3) * 0.05 + 0.85;
         
-        // Mouse interaction (gentle)
-        vec2 mouseEffect = (mouse - vec2(0.5)) * 0.1;
-        pattern += sin((uv.x + mouseEffect.x) * 2.0) * 0.2;
-        pattern += sin((uv.y + mouseEffect.y) * 2.0) * 0.2;
+        // Mesh gradient pattern
+        float meshX = sin(uv.x * 2.5 + time * 0.1) * 0.5 + 0.5;
+        float meshY = sin(uv.y * 2.0 + time * 0.15) * 0.5 + 0.5;
+        float mesh = meshX * meshY;
+        
+        // Additional wave patterns
+        float wave1 = sin((uv.x + uv.y) * 3.0 + time * 0.2) * 0.5 + 0.5;
+        float wave2 = cos((uv.x - uv.y) * 2.5 + time * 0.25) * 0.5 + 0.5;
+        
+        // Blend meshes
+        float pattern = mix(mesh, wave1, 0.4);
+        pattern = mix(pattern, wave2, 0.3);
+        
+        // Subtle mouse influence
+        vec2 mouseEffect = (mouse - vec2(0.5)) * 0.08;
+        pattern += sin((uv.x + mouseEffect.x) * 2.0 + time * 0.1) * 0.15;
+        pattern += sin((uv.y + mouseEffect.y) * 2.0 + time * 0.15) * 0.15;
         
         // Mix colors based on pattern
-        vec3 col = mix(color1, color2, pattern);
-        col = mix(col, color3, sin(uv.x + uv.y + time * 0.1) * 0.5 + 0.5);
+        vec3 col = mix(colorCream, colorSage, pattern * 0.6);
         
         // Apply breathing effect
-        col = col * breathe + 0.05;
+        col = col * breathe + vec3(0.08, 0.08, 0.08);
         
-        gl_FragColor = vec4(col, 0.6);
+        // Gradient overlay (more sage on bottom-right)
+        vec3 gradientOverlay = mix(vec3(1.0), colorSage * 0.15, uv.x * 0.3 + uv.y * 0.2);
+        col = col + gradientOverlay * 0.2;
+        
+        gl_FragColor = vec4(col, 0.7);
       }
     `;
 
@@ -78,6 +91,16 @@ export function HeroWebGL() {
     gl.compileShader(vs);
     gl.compileShader(fs);
 
+    if (!gl.getShaderParameter(vs, gl.COMPILE_STATUS)) {
+      console.error('Vertex shader error:', gl.getShaderInfoLog(vs));
+      return;
+    }
+
+    if (!gl.getShaderParameter(fs, gl.COMPILE_STATUS)) {
+      console.error('Fragment shader error:', gl.getShaderInfoLog(fs));
+      return;
+    }
+
     gl.attachShader(program, vs);
     gl.attachShader(program, fs);
     gl.linkProgram(program);
@@ -88,7 +111,7 @@ export function HeroWebGL() {
       return;
     }
 
-    // Create vertices
+    // Create vertices (full screen quad)
     const vertices = new Float32Array([
       -1, -1,
       1, -1,
@@ -120,8 +143,8 @@ export function HeroWebGL() {
 
     // Mouse tracking
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX / window.innerWidth;
-      mouseY = 1.0 - e.clientY / window.innerHeight;
+      mouseX = Math.min(1, Math.max(0, e.clientX / window.innerWidth));
+      mouseY = Math.min(1, Math.max(0, 1.0 - e.clientY / window.innerHeight));
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -156,7 +179,7 @@ export function HeroWebGL() {
         left: 0,
         width: '100%',
         height: '100%',
-        opacity: 0.6
+        opacity: 0.8
       }}
     />
   );
