@@ -2,6 +2,11 @@ import Link from 'next/link';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ArticleCard } from './components/ArticleCard';
+import { HeroWebGL } from './components/HeroWebGL';
+import { BentoFeatures } from './components/BentoFeatures';
+import { PricingSection } from './components/PricingSection';
+import { CrisisSupport } from './components/CrisisSupport';
+import { Testimonials } from './components/Testimonials';
 import { getPublishedArticles, getAllCategories } from '@/lib/articles';
 import { getFeaturedVendors } from '@/lib/vendors';
 
@@ -16,8 +21,11 @@ export default function Home() {
       <Header />
 
       <main>
-        {/* Hero Section - Premium calm radial gradient */}
-        <section className="relative py-24 overflow-hidden" style={{ background: 'radial-gradient(circle at 50% -20%, #E3E9ED 0%, #FAFAF7 60%)' }}>
+        {/* Hero Section - WebGL mesh gradient with mouse interaction */}
+        <section className="hero-section relative py-32 overflow-hidden" style={{ background: '#FAFAF7', minHeight: '600px' }}>
+          {/* WebGL Canvas Background - Breathing mesh gradient */}
+          <HeroWebGL />
+          
           {/* Content - Positioned above gradient */}
           <div className="container-section relative z-10">
             <div className="max-w-3xl">
@@ -178,44 +186,153 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Articles - Essential Reading Grid Layout */}
-        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
+        {/* How It Works - Staggered Asymmetrical Vertical Timeline */}
+        <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
           <div className="container-section">
-            <div className="mb-12">
-              <h2 className="text-gray-900 mb-2">Essential Reading</h2>
+            <div className="mb-16">
+              <h2 className="text-gray-900 mb-2">How It Works</h2>
               <p className="text-gray-600 text-lg max-w-2xl font-sans">
-                Curated articles from men who've been there, covering the critical phases of your journey.
+                Navigate your divorce journey with proven protocols, one step at a time.
               </p>
             </div>
 
-            {/* Simple 3-column equal-width grid - NO SPANS */}
-            <div className="essential-reading-grid" style={{
-              display: 'grid !important',
-              gridTemplateColumns: 'repeat(3, 1fr) !important',
-              gap: '24px !important',
-              marginBottom: '48px'
-            }}>
-              {/* Featured Article - Same width as others */}
-              {featuredArticles[0] && (
-                <ArticleCard key={featuredArticles[0].id} article={featuredArticles[0]} featured={true} />
-              )}
+            {/* Staggered asymmetrical timeline */}
+            <div className="timeline-container relative" style={{ maxWidth: '900px', margin: '0 auto' }}>
+              {/* Vertical line connector */}
+              <div style={{
+                position: 'absolute',
+                left: '50%',
+                top: 0,
+                bottom: 0,
+                width: '2px',
+                background: 'linear-gradient(180deg, #0B253A 0%, rgba(11, 37, 58, 0.1) 100%)',
+                transform: 'translateX(-50%)',
+                zIndex: 0
+              }}></div>
 
-              {/* Secondary Article */}
-              {featuredArticles[1] && (
-                <ArticleCard key={featuredArticles[1].id} article={featuredArticles[1]} featured={false} />
-              )}
+              {/* Timeline Item 1 - Left (text) */}
+              <div className="timeline-item mb-16 relative" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '32px', alignItems: 'center' }}>
+                <div className="text-right">
+                  <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif", lineHeight: 1 }}>01</div>
+                  <h3 style={{ color: '#0B253A', marginTop: '12px', fontFamily: "'Playfair Display', system-ui, serif" }}>Understand Your Position</h3>
+                  <p style={{ color: '#4B5563', marginTop: '12px', fontSize: '0.95rem' }}>Assess your financial, emotional, and legal standing. Build your baseline understanding.</p>
+                </div>
+                <div style={{
+                  width: '16px',
+                  height: '16px',
+                  backgroundColor: '#0B253A',
+                  borderRadius: '50%',
+                  border: '4px solid #FFFFFF',
+                  boxShadow: '0 0 0 4px #0B253A',
+                  zIndex: 2,
+                  position: 'relative'
+                }}></div>
+                <div></div>
+              </div>
 
-              {/* Third Article */}
-              {featuredArticles[2] && (
-                <ArticleCard key={featuredArticles[2].id} article={featuredArticles[2]} featured={false} />
-              )}
+              {/* Timeline Item 2 - Right (visual) */}
+              <div className="timeline-item mb-16 relative" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '32px', alignItems: 'center' }}>
+                <div></div>
+                <div style={{
+                  width: '16px',
+                  height: '16px',
+                  backgroundColor: '#0B253A',
+                  borderRadius: '50%',
+                  border: '4px solid #FFFFFF',
+                  boxShadow: '0 0 0 4px #0B253A',
+                  zIndex: 2,
+                  position: 'relative'
+                }}></div>
+                <div className="rounded-lg p-6" style={{ backgroundColor: '#F5F8FC', border: '1px solid #E0E8F2' }}>
+                  <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif", lineHeight: 1 }}>02</div>
+                  <h3 style={{ color: '#0B253A', marginTop: '12px', fontFamily: "'Playfair Display', system-ui, serif" }}>Develop Your Strategy</h3>
+                  <p style={{ color: '#4B5563', marginTop: '12px', fontSize: '0.95rem' }}>Work with specialists to build financial, legal, and emotional protocols tailored to your situation.</p>
+                </div>
+              </div>
+
+              {/* Timeline Item 3 - Left */}
+              <div className="timeline-item mb-16 relative" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '32px', alignItems: 'center' }}>
+                <div className="text-right rounded-lg p-6" style={{ backgroundColor: '#F5F8FC', border: '1px solid #E0E8F2' }}>
+                  <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif", lineHeight: 1 }}>03</div>
+                  <h3 style={{ color: '#0B253A', marginTop: '12px', fontFamily: "'Playfair Display', system-ui, serif" }}>Navigate Challenges</h3>
+                  <p style={{ color: '#4B5563', marginTop: '12px', fontSize: '0.95rem' }}>Execute your strategy with expert support for legal, financial, and emotional challenges.</p>
+                </div>
+                <div style={{
+                  width: '16px',
+                  height: '16px',
+                  backgroundColor: '#0B253A',
+                  borderRadius: '50%',
+                  border: '4px solid #FFFFFF',
+                  boxShadow: '0 0 0 4px #0B253A',
+                  zIndex: 2,
+                  position: 'relative'
+                }}></div>
+                <div></div>
+              </div>
+
+              {/* Timeline Item 4 - Right */}
+              <div className="timeline-item relative" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '32px', alignItems: 'center' }}>
+                <div></div>
+                <div style={{
+                  width: '16px',
+                  height: '16px',
+                  backgroundColor: '#0B253A',
+                  borderRadius: '50%',
+                  border: '4px solid #FFFFFF',
+                  boxShadow: '0 0 0 4px #0B253A',
+                  zIndex: 2,
+                  position: 'relative'
+                }}></div>
+                <div>
+                  <div style={{ fontSize: '3.5rem', fontWeight: 900, color: '#0B253A', fontFamily: "'Playfair Display', system-ui, serif", lineHeight: 1 }}>04</div>
+                  <h3 style={{ color: '#0B253A', marginTop: '12px', fontFamily: "'Playfair Display', system-ui, serif" }}>Rebuild & Thrive</h3>
+                  <p style={{ color: '#4B5563', marginTop: '12px', fontSize: '0.95rem' }}>Move forward with renewed purpose. Financial recovery, emotional healing, and growth mindset.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Loved by Men Like You - Testimonials */}
+        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
+          <div className="container-section">
+            <div className="mb-12">
+              <h2 className="text-gray-900 mb-2">Loved by Men Like You</h2>
+              <p className="text-gray-600 text-lg max-w-2xl font-sans">
+                Hear from men who've navigated their divorce with HisJourney.
+              </p>
             </div>
 
-            <div className="text-center">
-              <Link href="/articles" className="button-outline">
-                View All {articles.length} Articles
-              </Link>
+            <Testimonials />
+          </div>
+        </section>
+
+        {/* Featured Articles - BENTO BOX Grid */}
+        <section className="py-24" style={{ backgroundColor: '#FFFFFF' }}>
+          <div className="container-section">
+            <div className="mb-12">
+              <h2 className="text-gray-900 mb-2">Powerful Features</h2>
+              <p className="text-gray-600 text-lg max-w-2xl font-sans">
+                Everything you need to navigate your divorce journey with confidence.
+              </p>
             </div>
+
+            {/* True BENTO BOX GRID - cards with varying spans */}
+            <BentoFeatures />
+          </div>
+        </section>
+
+        {/* Simple, Transparent Pricing */}
+        <section className="py-24" style={{ backgroundColor: '#FAFAF7' }}>
+          <div className="container-section">
+            <div className="mb-16">
+              <h2 className="text-gray-900 mb-2">Simple, Transparent Pricing</h2>
+              <p className="text-gray-600 text-lg max-w-2xl font-sans">
+                Choose the plan that fits your journey.
+              </p>
+            </div>
+
+            <PricingSection />
           </div>
         </section>
 
@@ -282,50 +399,27 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Crisis Support - Direct & Honest */}
-        <section className="py-24 border-y border-gray-200" style={{ backgroundColor: '#FAFAF7' }}>
-          <div className="container-section">
+        {/* Crisis Support - Direct & Honest - IMPROVED CONTRAST */}
+        <section className="py-24 border-y border-gray-200" style={{ 
+          background: 'linear-gradient(135deg, #0B253A 0%, #1a3d52 100%)',
+          position: 'relative'
+        }}>
+          {/* Subtle pattern overlay */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            opacity: 0.03,
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'
+          }}></div>
+
+          <div className="container-section relative z-10">
             <div className="max-w-3xl">
-              <h2 className="text-gray-900 mb-4">In Crisis? You Have Options.</h2>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed font-sans">
+              <h2 style={{ color: '#FFFFFF', marginBottom: '16px' }}>In Crisis? You Have Options.</h2>
+              <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1.125rem', marginBottom: '32px', lineHeight: '1.6' }}>
                 Mental health support isn't weakness. It's part of the protocol. These services exist for men in your situation.
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <a 
-                  href="https://mensline.org.au" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="card-hover group"
-                >
-                  <div className="font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0B253A' }}>
-                    MensLine Australia
-                  </div>
-                  <p className="text-gray-600 text-sm mb-4 font-sans">
-                    24/7 support line for men. Professional, confidential.
-                  </p>
-                  <div className="font-mono font-bold text-lg" style={{ color: '#0B253A' }}>
-                    1300 78 99 78
-                  </div>
-                </a>
-
-                <a 
-                  href="https://www.beyondblue.org.au" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="card-hover group"
-                >
-                  <div className="font-serif font-bold text-gray-900 group-hover:text-primary-600 transition-colors mb-2" style={{ color: '#0B253A' }}>
-                    Beyond Blue
-                  </div>
-                  <p className="text-gray-600 text-sm mb-4 font-sans">
-                    Mental health and emotional wellbeing support.
-                  </p>
-                  <div className="font-mono font-bold text-lg" style={{ color: '#0B253A' }}>
-                    1300 22 4636
-                  </div>
-                </a>
-              </div>
+              <CrisisSupport />
             </div>
           </div>
         </section>
